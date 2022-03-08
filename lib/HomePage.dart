@@ -33,32 +33,57 @@ class HomePage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(10),
                 width: 200,
-                color: Colors.red.shade400,
-                /*decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                decoration: BoxDecoration(
+                    color: Colors.red.shade400,
+                  /*gradient: LinearGradient(
                     colors: [Colors.red.shade300, Colors.red.shade600],
                     begin: Alignment.bottomLeft,
                     end: Alignment.topRight,
-                  ),
-                ),*/
+                  ),*/
+                    borderRadius: BorderRadius.circular(20)
+                ),
                 child: const Center(child: Text('Matematik', style: TextStyle(fontSize: 18, color: Colors.white),)),
               ),
               Container(
                 margin: EdgeInsets.all(10),
                 width: 200,
-                color: Colors.red.shade400,
+                decoration: BoxDecoration(
+                    color: Colors.red.shade400,
+                    /*gradient: LinearGradient(
+                    colors: [Colors.red.shade300, Colors.red.shade600],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                  ),*/
+                    borderRadius: BorderRadius.circular(20)
+                ),
                 child: const Center(child: Text('Türkçe', style: TextStyle(fontSize: 18, color: Colors.white),)),
               ),
               Container(
                 margin: EdgeInsets.all(10),
                 width: 200,
-                color: Colors.red.shade400,
+                decoration: BoxDecoration(
+                    color: Colors.red.shade400,
+                    /*gradient: LinearGradient(
+                    colors: [Colors.red.shade300, Colors.red.shade600],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                  ),*/
+                    borderRadius: BorderRadius.circular(20)
+                ),
                 child: const Center(child: Text('Fizik', style: TextStyle(fontSize: 18, color: Colors.white),)),
               ),
               Container(
                 margin: EdgeInsets.all(10),
                 width: 200,
-                color: Colors.red.shade400,
+                decoration: BoxDecoration(
+                    color: Colors.red.shade400,
+                    /*gradient: LinearGradient(
+                    colors: [Colors.red.shade300, Colors.red.shade600],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                  ),*/
+                    borderRadius: BorderRadius.circular(20)
+                ),
                 child: const Center(child: Text('Ingilizce', style: TextStyle(fontSize: 18, color: Colors.white),)),
               ),
             ],
