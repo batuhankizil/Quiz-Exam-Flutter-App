@@ -13,11 +13,11 @@ class HomePage extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Hızlı Bilgi'),
+          title: Text('Edulive'),
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.red.shade300, Colors.red.shade600],
+                colors: [Colors.green, Colors.green.shade800],
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
               ),
@@ -34,6 +34,13 @@ class HomePage extends StatelessWidget {
                 margin: EdgeInsets.all(10),
                 width: 200,
                 color: Colors.red.shade400,
+                /*decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.red.shade300, Colors.red.shade600],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                  ),
+                ),*/
                 child: const Center(child: Text('Matematik', style: TextStyle(fontSize: 18, color: Colors.white),)),
               ),
               Container(
