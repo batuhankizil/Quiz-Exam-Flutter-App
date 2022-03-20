@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
              Container(
                margin: const EdgeInsets.only(top: 10, left: 8),
               child: const Text("Dersler",
-              style: TextStyle(/*fontWeight: FontWeight.bold,*/ fontSize: 26, fontWeight: FontWeight.w300),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26, /*fontWeight: FontWeight.w300*/),
               textAlign: TextAlign.left,),
             ),
             Container(

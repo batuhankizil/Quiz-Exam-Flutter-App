@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'splash.dart';
 import 'HomePage.dart';
 
 void main() {
@@ -9,9 +9,9 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: Splash(),
     );
   }
 }
