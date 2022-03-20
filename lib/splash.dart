@@ -25,19 +25,29 @@ class _SplashState extends State<Splash > {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: const DecorationImage(
-          image: ExactAssetImage('@mipmap/app_icon.png'),
-          fit: BoxFit.fitHeight
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.green, Colors.green.shade800],
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+          ),
         ),
-        gradient: LinearGradient(
-          colors: [Colors.green.shade500, Colors.green.shade900],
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset('assets/app_icon.png',
+              height: 180),
+              const Text('Edulive',
+              style: TextStyle(color: Colors.white,
+              fontSize: 45),)
+            ],
+          ),
         ),
       ),
-      child: const Center(child: Text('Edulive', textAlign: TextAlign.center, style: TextStyle(color: Colors.white, decoration: TextDecoration.none))),
     );
   }
 }

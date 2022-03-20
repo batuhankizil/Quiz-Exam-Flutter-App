@@ -6,6 +6,7 @@
         android:icon="@mipmap/app_icon">
         <activity
             android:name=".MainActivity"
+            android:noHistory="true"
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
