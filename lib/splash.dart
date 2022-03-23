@@ -1,7 +1,10 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sinavproje/HomePage.dart';
+import 'package:sinavproje/Login.dart';
+import 'package:sinavproje/Register.dart';
 
 class Splash  extends StatefulWidget {
   const Splash ({Key? key}) : super(key: key);
@@ -15,10 +18,10 @@ class _SplashState extends State<Splash > {
   void initState(){
     super.initState();
     Timer(
-    const Duration(seconds: 3),
+    const Duration(seconds: 1),
 
         ()=> Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder:(BuildContext context) => HomePage() )));
+            builder:(BuildContext context) => LoginScreen() )));
     super.initState();
   }
 

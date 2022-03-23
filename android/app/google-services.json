@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "652230718411",
+    "project_id": "edulive-424ff",
+    "storage_bucket": "edulive-424ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652230718411:android:ac6ace0196dc9a4b987c4e",
+        "android_client_info": {
+          "package_name": "com.example.sinavproje"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652230718411-lbg4032cvjhopnm4btc5n8h0flmnqpcj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfpypskHtL7FG9Ifa2v8UKx1xK6-hVwZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "652230718411-lbg4032cvjhopnm4btc5n8h0flmnqpcj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
