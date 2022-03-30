@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sinavproje/Ayt/aytScreen.dart';
+import 'package:sinavproje/favNotes.dart';
 import 'package:sinavproje/my_drawer_header.dart';
 
 void main() => runApp(HomePage());
@@ -96,6 +97,8 @@ class HomePage extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 print('TYT');
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => favNotesScreen()),);
               },
               child: Container(
                 padding: const EdgeInsets.all(8),
@@ -104,7 +107,7 @@ class HomePage extends StatelessWidget {
                 textAlign: TextAlign.center,),*/
                 child: const Align(
                   alignment: Alignment.center,
-                  child: Text("Çalışma Programı",
+                  child: Text("Kaydedilen Notlar",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),

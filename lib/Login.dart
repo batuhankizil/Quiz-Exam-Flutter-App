@@ -20,6 +20,10 @@ class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
   String name = "";
 
+  bool _validateMail = false;
+  bool _validatePassword = false;
+
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -81,7 +85,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }*/
-
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -125,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 60),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 25),
-                          height: 120,
+                          height: 146,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                               color: Colors.white,
@@ -144,8 +147,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             children: [
                               /// EMAIL
                               TextField(
+                                keyboardType: TextInputType.emailAddress,
+                                textCapitalization: TextCapitalization.none,
                                 style: TextStyle(fontSize: 15),
-                                decoration: const InputDecoration(
+                                decoration:  InputDecoration(
+                                    errorText: _validateMail ? 'Email Adresinizi Girin' : null,
                                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
                                     border: InputBorder.none,
                                     hintText: 'Email / Telefon Numarası',
@@ -157,7 +163,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               Divider(color: Colors.black54, height: 1),
                               /// PASSWORD
                               TextField(
-                                decoration: const InputDecoration(
+                                decoration:  InputDecoration(
+                                    errorText: _validatePassword ? 'Şifrenizi Girin' : null,
                                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
                                     border: InputBorder.none,
                                     hintText: 'Şifre',
@@ -173,6 +180,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 35),
                         MaterialButton(
                           onPressed: (){
+                            setState(() {
+                              _emailController.text.isEmpty ? _validateMail = true : _validateMail = false;
+                              _passwordController.text.isEmpty ? _validatePassword = true : _validatePassword = false;
+                            });
                             _authService.signIn(_emailController.text, _passwordController.text).then((value) {
                               return Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
                             });
@@ -240,3 +251,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+

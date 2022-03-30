@@ -18,6 +18,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final formKey = GlobalKey<FormState>();
   String name = "";
 
+  bool _validateFullName = false;
+  bool _validateMail = false;
+  bool _validatePassword = false;
+  bool _validatepasswordAgain = false;
+
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -127,7 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         const SizedBox(height: 60),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 25),
-                          height: 200,
+                          height: 300,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                               color: Colors.white,
@@ -146,7 +151,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             children: [
                               TextField(
                                 style: const TextStyle(fontSize: 15),
-                                decoration: const InputDecoration(
+                                decoration:  InputDecoration(
+                                    errorText: _validateFullName ? 'Ad Soyad Girin' : null,
                                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
                                     border: InputBorder.none,
                                     hintText: 'Ad Soyad',
@@ -157,7 +163,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                               const Divider(color: Colors.black54, height: 1),
                               TextField(
-                                decoration: const InputDecoration(
+                                keyboardType: TextInputType.emailAddress,
+                                textCapitalization: TextCapitalization.none,
+                                decoration:  InputDecoration(
+                                    errorText: _validateMail ? 'Email Adresinizi Girin' : null,
                                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
                                     border: InputBorder.none,
                                     hintText: 'Email',
@@ -168,7 +177,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                               const Divider(color: Colors.black54, height: 1),
                                TextField(
-                                decoration: const InputDecoration(
+                                decoration:  InputDecoration(
+                                    errorText: _validatePassword ? 'Şifrenizi Girin' : null,
                                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
                                     border: InputBorder.none,
                                     hintText: 'Şifre',
@@ -180,7 +190,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                               const Divider(color: Colors.black54, height: 1),
                                TextField(
-                                decoration: const InputDecoration(
+                                decoration:  InputDecoration(
+                                    errorText: _validatepasswordAgain ? 'Şifrenizi Girin' : null,
                                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
                                     border: InputBorder.none,
                                     hintText: 'Şifre Tekrar',
@@ -196,6 +207,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         const SizedBox(height: 35),
                         MaterialButton(
                             onPressed: (){
+                              _nameController.text.isEmpty ? _validateFullName = true : _validateFullName = false;
+                              _emailController.text.isEmpty ? _validateMail = true : _validateMail = false;
+                              _passwordController.text.isEmpty ? _validatePassword = true : _validatePassword = false;
+                              _passwordAgainController.text.isEmpty ? _validatepasswordAgain = true : _validatepasswordAgain = false;
                               FirebaseAuth.instance.createUserWithEmailAndPassword(email: _emailController.text, password: _passwordController.text).then((value) =>
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage())));
                             },
@@ -229,12 +244,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const Text('Telefon Numarası ile', style: TextStyle(color: Colors.black45)),
+                              const Text('Zaten Bir Hesabım Var', style: TextStyle(color: Colors.black45)),
                               TextButton(
                                   onPressed: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>RegisterScreen()),);
+                                    Navigator.pop(context, MaterialPageRoute(builder: (context)=>LoginScreen()),);
                                   },
-                                  child: const Text('Kayıt Ol', style: TextStyle(color: Colors.green),))
+                                  child: const Text('Giriş Yap', style: TextStyle(color: Colors.green),))
                             ],
                           ),
                         )

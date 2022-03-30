@@ -79,8 +79,16 @@ class MainDrawer extends StatelessWidget {
       ),
       ListTile(
         onTap: () async {
-          await FirebaseAuth.instance.signOut();
+          /*await FirebaseAuth.instance.signOut();
           Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        },*/
+          await FirebaseAuth.instance.signOut();
+          Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+          builder: (context) => LoginScreen(),
+          ),
+          (route) => false);
         },
 
         leading: const Icon(
