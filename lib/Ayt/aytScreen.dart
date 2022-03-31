@@ -11,6 +11,32 @@ class aytScreen extends StatefulWidget {
 class _aytScreenState extends State<aytScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: ListView(
+            children: const [
+              Card(
+                  child: ListTile(
+                    title:Text("Türk Dili ve Edebiyatı") ,
+                  )
+              ),
+              Card(
+                child: ListTile(
+                  title: Text("Sosyal Bilimler"),
+                ),
+              ),
+              Card(
+                  child: ListTile(
+                    title: Text("Matematik"),
+                  )
+              ),
+              Card(
+                  child: ListTile(
+                    title: Text("Fen Bilimleri"),
+                  )
+              ),
+            ],
+            padding: EdgeInsets.all(30),
+          ),
+    );
   }
 }
