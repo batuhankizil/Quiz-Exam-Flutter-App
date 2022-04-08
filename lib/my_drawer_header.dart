@@ -1,9 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sinavproje/Login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sinavproje/Service/auth.dart';
+import 'package:sinavproje/Login.dart';
 
 class MainDrawer extends StatelessWidget {
+
+  final Future<FirebaseApp> _initfirebase = Firebase.initializeApp();
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -14,33 +24,54 @@ class MainDrawer extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              CircleAvatar(
+            children: [
+              const CircleAvatar(
                 radius: 50.0,
                 backgroundImage: NetworkImage(
                   "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
                 ),
                 backgroundColor: Colors.white,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5.0,
               ),
-              Text(
+              /*FutureBuilder(
+                future: _initfirebase,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return Text("${_firestore.hashCode}");
+                  } else {
+                    return CircularProgressIndicator();
+                  }
+                },
+              ),*/
+
+              const Text(
                 "Batuhan Kızıl",
                 style: TextStyle(
                   fontSize: 22.0,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5.0,
               ),
-              Text(
+              FutureBuilder(
+                future: _initfirebase,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return Text("${_auth.currentUser?.email}");
+                  } else {
+                    return CircularProgressIndicator();
+                  }
+                },
+              ),
+              /*const Text(
                 "batu@gmail.com",
                 style: TextStyle(
                   color: Colors.black38,
                   fontSize: 16.0,
                 ),
-              ),
+              ),*/
 
             ],
           ),

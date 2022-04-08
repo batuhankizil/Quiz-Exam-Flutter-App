@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Edulive'),
+          title: const Text('Edulive'),
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -222,3 +222,5 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+

@@ -26,7 +26,6 @@ class _favNotesScreenState extends State<favNotesScreen> {
         ),
         child: Column(
           children: [
-            /// Login & Welcome back
             Container(
               height: 120,
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
@@ -45,7 +44,7 @@ class _favNotesScreenState extends State<favNotesScreen> {
                         color: Colors.white,
                         size: 24.0,
                       ),
-                      label: Text('Kaydedilen Notlar', style: TextStyle(color: Colors.white),),
+                      label: const Text('Kaydedilen Notlar', style: TextStyle(color: Colors.white),),
                     ),
                     ),
                 ],

@@ -5,6 +5,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sinavproje/HomePage.dart';
 import 'package:sinavproje/Register.dart';
 import 'package:sinavproje/Service/auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sinavproje/Login.dart';
+import 'package:sinavproje/my_drawer_header.dart';
+import 'package:validators/validators.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -20,12 +25,32 @@ class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
   String name = "";
 
+
+  final _controller = TextEditingController();
+
+
   bool _validateMail = false;
   bool _validatePassword = false;
 
-
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+
+  saveData() async{
+    final localStorage = await SharedPreferences.getInstance();
+    localStorage.setString("userEmail", _emailController.text.toString());
+
+    String? userEmail = localStorage.getString("userEmail");
+
+
+    if(_emailController.text == "" && _passwordController.text == ""){
+      print("Giriş yapılamadı.");
+    }else{
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => MainDrawer())
+      );
+    }
+  }
 
   AuthService _authService = AuthService();
 
@@ -145,7 +170,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              /// EMAIL
                               TextField(
                                 keyboardType: TextInputType.emailAddress,
                                 textCapitalization: TextCapitalization.none,
@@ -154,14 +178,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                     errorText: _validateMail ? 'Email Adresinizi Girin' : null,
                                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
                                     border: InputBorder.none,
-                                    hintText: 'Email / Telefon Numarası',
+                                    hintText: 'Email',
                                     isCollapsed: false,
                                     hintStyle: TextStyle(fontSize: 14, color: Colors.grey)
                                 ),
                                 controller: _emailController,
                               ),
-                              Divider(color: Colors.black54, height: 1),
-                              /// PASSWORD
+                              const Divider(color: Colors.black54, height: 1),
                               TextField(
                                 decoration:  InputDecoration(
                                     errorText: _validatePassword ? 'Şifrenizi Girin' : null,
@@ -185,7 +208,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               _passwordController.text.isEmpty ? _validatePassword = true : _validatePassword = false;
                             });
                             _authService.signIn(_emailController.text, _passwordController.text).then((value) {
-                              return Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
                             });
                           },
                           child: Container(
@@ -251,4 +274,5 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
 
