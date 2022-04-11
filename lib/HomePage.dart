@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sinavproje/Ayt/aytScreen.dart';
+import 'package:sinavproje/Tyt/tytScreen.dart';
 import 'package:sinavproje/favNotes.dart';
 import 'package:sinavproje/my_drawer_header.dart';
 
@@ -70,7 +71,8 @@ class HomePage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                print('Tıklandı');
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => tytScreen()),);
               },
               child: Container(
                 padding: const EdgeInsets.all(8),
@@ -96,7 +98,6 @@ class HomePage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                print('TYT');
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => favNotesScreen()),);
               },
@@ -200,9 +201,61 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            GestureDetector(
+              onTap: () {
+                print('Deneme');
+              },
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                /*child: const Text("He'd have you all unravel at the",
+                style: TextStyle(fontSize: 18, color: Colors.white),
+                textAlign: TextAlign.center,),*/
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Text("Puan Hesapla",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.green, Colors.green.shade800],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                    ),
+                    borderRadius: BorderRadius.circular(20)
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                print('Deneme');
+              },
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                /*child: const Text("He'd have you all unravel at the",
+                style: TextStyle(fontSize: 18, color: Colors.white),
+                textAlign: TextAlign.center,),*/
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Text("Soru Dağılımı",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.green, Colors.green.shade800],
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                    ),
+                    borderRadius: BorderRadius.circular(20)
+                ),
+              ),
+            ),
           ],
         ),
-        bottomNavigationBar: BottomNavigationBar(
+        /*bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -217,7 +270,7 @@ class HomePage extends StatelessWidget {
               label: 'Profil',
             ),
           ],
-        ),
+        ),*/
       ),
     );
   }

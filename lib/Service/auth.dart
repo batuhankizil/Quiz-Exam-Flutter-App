@@ -5,6 +5,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  //final CollectionReference perconCollection = FirebaseFirestore.instance.collection('person');
+
+  late final String uid;
+  //AuthService({required this.uid});
+
 
   //giriş yap fonksiyonu
   Future<User?> signIn(String email, String password) async {
@@ -24,11 +29,9 @@ class AuthService {
         email: email, password: password);
 
     await _firestore
-        .collection('person')
+        .collection("person")
         .doc(user.user?.uid)
         .set({'userName': name, 'email': email});
-
     return user.user;
   }
-
 }

@@ -20,20 +20,31 @@ class LoginScreen extends StatefulWidget {
 }
 
 
-
 class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
   String name = "";
 
-
-  final _controller = TextEditingController();
-
-
   bool _validateMail = false;
   bool _validatePassword = false;
 
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  late final TextEditingController _emailController;
+  late final TextEditingController _passwordController;
+
+  @override
+  void initState() {
+    // ignore: todo
+    _emailController = TextEditingController(); // TODO: implement initState
+    // ignore: todo
+    _passwordController = TextEditingController(); // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
 
   saveData() async{
@@ -202,7 +213,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 35),
                         MaterialButton(
-                          onPressed: (){
+                          onPressed: () async {
                             setState(() {
                               _emailController.text.isEmpty ? _validateMail = true : _validateMail = false;
                               _passwordController.text.isEmpty ? _validatePassword = true : _validatePassword = false;

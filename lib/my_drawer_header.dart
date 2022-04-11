@@ -5,6 +5,7 @@ import 'package:sinavproje/Login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sinavproje/Service/auth.dart';
 import 'package:sinavproje/Login.dart';
+import 'package:sinavproje/appAboutScreen.dart';
 
 class MainDrawer extends StatelessWidget {
 
@@ -101,7 +102,9 @@ class MainDrawer extends StatelessWidget {
         title: Text("Ayarlar"),
       ),
       ListTile(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => appAboutScreen()));
+        },
         leading: const Icon(
           Icons.info_outline,
           color: Colors.black,
