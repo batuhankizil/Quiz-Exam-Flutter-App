@@ -5,6 +5,7 @@ import 'package:sinavproje/Ayt/aytScreen.dart';
 import 'package:sinavproje/Tyt/tytScreen.dart';
 import 'package:sinavproje/favNotes.dart';
 import 'package:sinavproje/my_drawer_header.dart';
+import 'package:sinavproje/scoreCalculator.dart';
 
 void main() => runApp(HomePage());
 
@@ -203,7 +204,8 @@ class HomePage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                print('Deneme');
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => scoreCalculator()),);
               },
               child: Container(
                 padding: const EdgeInsets.all(8),

@@ -47,12 +47,12 @@ class MainDrawer extends StatelessWidget {
                 },
               ),*/
 
-              const Text(
+              /*const Text(
                 "Batuhan Kızıl",
                 style: TextStyle(
                   fontSize: 22.0,
                 ),
-              ),
+              ),*/
               const SizedBox(
                 height: 5.0,
               ),
