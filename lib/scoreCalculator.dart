@@ -128,174 +128,210 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            const Align(
-              alignment: Alignment.topLeft,
-              child: Text("Netlerinizi giriniz",
-                  style: TextStyle(
-                    fontSize: 24,
-                  )),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Form(
-              key: _formKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  TextFormField(
-                    decoration: const InputDecoration(
-                        labelText: 'Türkçe',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          borderSide:
-                          BorderSide(color: Colors.grey, width: 0.0),
-                        ),
-                        border: OutlineInputBorder()),
-                    onFieldSubmitted: (value) {
-                      setState(() {
-                        firstName = value.capitalize();
-                        // firstNameList.add(firstName);
-                      });
-                    },
-                    onChanged: (value) {
-                      setState(() {
-                        firstName = value.capitalize();
-                      });
-                    },
-                    validator: (value) {
-                      if (value == null || value.isEmpty || value.length < 3) {
-                        return 'First Name must contain at least 3 characters';
-                      } else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
-                        return 'First Name cannot contain special characters';
-                      }
-                    },
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                        labelText: 'Sosyal Bilimler',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          borderSide:
-                          BorderSide(color: Colors.grey, width: 0.0),
-                        ),
-                        border: OutlineInputBorder()),
-                    validator: (value) {
-                      if (value == null || value.isEmpty || value.length < 3) {
-                        return 'Last Name must contain at least 3 characters';
-                      } else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
-                        return 'Last Name cannot contain special characters';
-                      }
-                    },
-                    onFieldSubmitted: (value) {
-                      setState(() {
-                        lastName = value.capitalize();
-                        // lastNameList.add(lastName);
-                      });
-                    },
-                    onChanged: (value) {
-                      setState(() {
-                        lastName = value.capitalize();
-                      });
-                    },
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                        labelText: 'Temel Matematik',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          borderSide:
-                          BorderSide(color: Colors.grey, width: 0.0),
-                        ),
-                        border: OutlineInputBorder()),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null ||
-                          value.isEmpty ||
-                          value.contains(RegExp(r'^[a-zA-Z\-]'))) {
-                        return 'Use only numbers!';
-                      }
-                    },
-                    onFieldSubmitted: (value) {
-                      setState(() {
-                        bodyTemp = value;
-                        // bodyTempList.add(bodyTemp);
-                      });
-                    },
-                    onChanged: (value) {
-                      setState(() {
-                        bodyTemp = value;
-                      });
-                    },
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                        labelText: 'Fen Bilimleri',
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                          borderSide:
-                          BorderSide(color: Colors.grey, width: 0.0),
-                        ),
-                        border: OutlineInputBorder()),
-                    keyboardType: TextInputType.number,
-                    validator: (value) {
-                      if (value == null ||
-                          value.isEmpty ||
-                          value.contains(RegExp(r'^[a-zA-Z\-]'))) {
-                        return 'Use only numbers!';
-                      }
-                    },
-                    onFieldSubmitted: (value) {
-                      setState(() {
-                        bodyTemp = value;
-                        // bodyTempList.add(bodyTemp);
-                      });
-                    },
-                    onChanged: (value) {
-                      setState(() {
-                        bodyTemp = value;
-                      });
-                    },
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 60,
-                    child: const Align(
-                      alignment: Alignment.center,
-                      child: Text("Hesapla",
-                        style: TextStyle(fontSize: 17, color: Colors.white),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.green, Colors.green.shade800],
-                          begin: Alignment.bottomLeft,
-                          end: Alignment.topRight,
-                        ),
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                  )
-                ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: <Widget>[
+              const Align(
+                alignment: Alignment.topLeft,
+                child: Text("Netlerinizi giriniz",
+                    style: TextStyle(
+                      fontSize: 24,
+                    )),
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          labelText: 'Türkçe',
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                            borderSide:
+                            BorderSide(color: Colors.grey, width: 0.0),
+                          ),
+                          border: OutlineInputBorder()),
+                      keyboardType: TextInputType.number,
+                      onFieldSubmitted: (value) {
+                        setState(() {
+                          firstName = value.capitalize();
+                          // firstNameList.add(firstName);
+                        });
+                      },
+                      onChanged: (value) {
+                        setState(() {
+                          firstName = value.capitalize();
+                        });
+                      },
+                      validator: (value) {
+                        if (value == null || value.isEmpty || value.length < 3) {
+                          return 'First Name must contain at least 3 characters';
+                        } else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
+                          return 'First Name cannot contain special characters';
+                        }
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          labelText: 'Sosyal Bilimler',
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                            borderSide:
+                            BorderSide(color: Colors.grey, width: 0.0),
+                          ),
+                          border: OutlineInputBorder()),
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value == null || value.isEmpty || value.length < 3) {
+                          return 'Last Name must contain at least 3 characters';
+                        } else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
+                          return 'Last Name cannot contain special characters';
+                        }
+                      },
+                      onFieldSubmitted: (value) {
+                        setState(() {
+                          lastName = value.capitalize();
+                          // lastNameList.add(lastName);
+                        });
+                      },
+                      onChanged: (value) {
+                        setState(() {
+                          lastName = value.capitalize();
+                        });
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          labelText: 'Temel Matematik',
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                            borderSide:
+                            BorderSide(color: Colors.grey, width: 0.0),
+                          ),
+                          border: OutlineInputBorder()),
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.contains(RegExp(r'^[a-zA-Z\-]'))) {
+                          return 'Use only numbers!';
+                        }
+                      },
+                      onFieldSubmitted: (value) {
+                        setState(() {
+                          bodyTemp = value;
+                          // bodyTempList.add(bodyTemp);
+                        });
+                      },
+                      onChanged: (value) {
+                        setState(() {
+                          bodyTemp = value;
+                        });
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          labelText: 'Fen Bilimleri',
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                            borderSide:
+                            BorderSide(color: Colors.grey, width: 0.0),
+                          ),
+                          border: OutlineInputBorder()),
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.contains(RegExp(r'^[a-zA-Z\-]'))) {
+                          return 'Use only numbers!';
+                        }
+                      },
+                      onFieldSubmitted: (value) {
+                        setState(() {
+                          bodyTemp = value;
+                          // bodyTempList.add(bodyTemp);
+                        });
+                      },
+                      onChanged: (value) {
+                        setState(() {
+                          bodyTemp = value;
+                        });
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          labelText: 'OBP Puanı',
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                            borderSide:
+                            BorderSide(color: Colors.grey, width: 0.0),
+                          ),
+                          border: OutlineInputBorder()),
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.contains(RegExp(r'^[a-zA-Z\-]'))) {
+                          return 'Use only numbers!';
+                        }
+                      },
+                      onFieldSubmitted: (value) {
+                        setState(() {
+                          bodyTemp = value;
+                          // bodyTempList.add(bodyTemp);
+                        });
+                      },
+                      onChanged: (value) {
+                        setState(() {
+                          bodyTemp = value;
+                        });
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 60,
+                      child: const Align(
+                        alignment: Alignment.center,
+                        child: Text("Hesapla",
+                          style: TextStyle(fontSize: 17, color: Colors.white),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.green, Colors.green.shade800],
+                            begin: Alignment.bottomLeft,
+                            end: Alignment.topRight,
+                          ),
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -340,3 +376,4 @@ extension StringExtension on String {
     return "${this[0].toUpperCase()}${this.substring(1)}";
   }
 }
+
