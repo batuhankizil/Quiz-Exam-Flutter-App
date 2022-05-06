@@ -26,6 +26,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<FormState> _formKey = GlobalKey();
 
+  final controlTurkce = TextEditingController();
+  final controlSosyalBilimler = TextEditingController();
+  final controlTemelMatematik = TextEditingController();
+  final controlFenBilimleri = TextEditingController();
+  final controlObpPuan = TextEditingController();
+
   String firstName = "";
   String lastName = "";
   String bodyTemp = "";
@@ -37,7 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
       barrierDismissible: true, // user can tap anywhere to close the pop up
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Your information has been submitted'),
           content: SingleChildScrollView(
             child: Column(
               children: <Widget>[
@@ -158,6 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           border: OutlineInputBorder()),
                       keyboardType: TextInputType.number,
+                      controller: controlTurkce,
                       onFieldSubmitted: (value) {
                         setState(() {
                           firstName = value.capitalize();
@@ -190,6 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           border: OutlineInputBorder()),
                       keyboardType: TextInputType.number,
+                      controller: controlSosyalBilimler,
                       validator: (value) {
                         if (value == null || value.isEmpty || value.length < 3) {
                           return 'Last Name must contain at least 3 characters';
@@ -222,6 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           border: OutlineInputBorder()),
                       keyboardType: TextInputType.number,
+                      controller: controlTemelMatematik,
                       validator: (value) {
                         if (value == null ||
                             value.isEmpty ||
@@ -253,6 +261,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             BorderSide(color: Colors.grey, width: 0.0),
                           ),
                           border: OutlineInputBorder()),
+                      controller: controlFenBilimleri,
                       keyboardType: TextInputType.number,
                       validator: (value) {
                         if (value == null ||
@@ -275,8 +284,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     const SizedBox(
                       height: 20,
-                    ),
-                    TextFormField(
+                    ),TextFormField(
                       decoration: const InputDecoration(
                           labelText: 'OBP Puanı',
                           enabledBorder: OutlineInputBorder(
@@ -285,6 +293,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             BorderSide(color: Colors.grey, width: 0.0),
                           ),
                           border: OutlineInputBorder()),
+                      controller: controlObpPuan,
                       keyboardType: TextInputType.number,
                       validator: (value) {
                         if (value == null ||
@@ -326,7 +335,28 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           borderRadius: BorderRadius.circular(10)
                       ),
-                    )
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 40,
+                      child: const Align(
+                        alignment: Alignment.center,
+                        child: Text('TYT Puanı',
+                        style: TextStyle(fontSize: 22))
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 40,
+                      child: const Align(
+                        alignment: Alignment.center,
+                        child: Text('Text',
+                        style: TextStyle(fontSize: 20))
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -376,4 +406,3 @@ extension StringExtension on String {
     return "${this[0].toUpperCase()}${this.substring(1)}";
   }
 }
-
