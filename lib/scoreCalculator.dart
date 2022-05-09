@@ -6,21 +6,28 @@ class scoreCalculator extends StatefulWidget {
 
   @override
   State<scoreCalculator> createState() => _scoreCalculatorState();
+
+
 }
 
 class _scoreCalculatorState extends State<scoreCalculator> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+   MyHomePage({Key? key}) : super(key: key);
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
+
+  num result2 = 0;
+
+
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -32,12 +39,21 @@ class _MyHomePageState extends State<MyHomePage> {
   final controlFenBilimleri = TextEditingController();
   final controlObpPuan = TextEditingController();
 
+  num netTurkce = 0,
+      netSosyalBilimler = 0,
+      netTemelMatematik = 0,
+      netFenBilimleri = 0,
+      obpPuan = 0;
+
+  num result = 0;
+
+
   String firstName = "";
   String lastName = "";
   String bodyTemp = "";
   var measure;
 
-  void _submit() {
+  /*void _submit() {
     showDialog<void>(
       context: context,
       barrierDismissible: true, // user can tap anywhere to close the pop up
@@ -115,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       },
     );
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -164,23 +180,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           border: OutlineInputBorder()),
                       keyboardType: TextInputType.number,
                       controller: controlTurkce,
-                      onFieldSubmitted: (value) {
-                        setState(() {
-                          firstName = value.capitalize();
-                          // firstNameList.add(firstName);
-                        });
-                      },
-                      onChanged: (value) {
-                        setState(() {
-                          firstName = value.capitalize();
-                        });
-                      },
                       validator: (value) {
-                        if (value == null || value.isEmpty || value.length < 3) {
-                          return 'First Name must contain at least 3 characters';
-                        } else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
-                          return 'First Name cannot contain special characters';
-                        }
+                        if (value == null || value.isEmpty) {
+                          return 'Boş bırakılamaz.';
+                        } /*else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
+                          return 'Lütfen netinizi girin.';
+                        }*/
                       },
                     ),
                     const SizedBox(
@@ -198,22 +203,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       keyboardType: TextInputType.number,
                       controller: controlSosyalBilimler,
                       validator: (value) {
-                        if (value == null || value.isEmpty || value.length < 3) {
-                          return 'Last Name must contain at least 3 characters';
-                        } else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
-                          return 'Last Name cannot contain special characters';
-                        }
-                      },
-                      onFieldSubmitted: (value) {
-                        setState(() {
-                          lastName = value.capitalize();
-                          // lastNameList.add(lastName);
-                        });
-                      },
-                      onChanged: (value) {
-                        setState(() {
-                          lastName = value.capitalize();
-                        });
+                        if (value == null || value.isEmpty) {
+                          return 'Boş bırakılamaz.';
+                        } /*else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
+                          return 'Lütfen netinizi girin.';
+                        }*/
                       },
                     ),
                     const SizedBox(
@@ -231,22 +225,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       keyboardType: TextInputType.number,
                       controller: controlTemelMatematik,
                       validator: (value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            value.contains(RegExp(r'^[a-zA-Z\-]'))) {
-                          return 'Use only numbers!';
-                        }
-                      },
-                      onFieldSubmitted: (value) {
-                        setState(() {
-                          bodyTemp = value;
-                          // bodyTempList.add(bodyTemp);
-                        });
-                      },
-                      onChanged: (value) {
-                        setState(() {
-                          bodyTemp = value;
-                        });
+                        if (value == null || value.isEmpty) {
+                          return 'Boş bırakılamaz.';
+                        } /*else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
+                          return 'Lütfen netinizi girin.';
+                        }*/
                       },
                     ),
                     const SizedBox(
@@ -264,22 +247,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       controller: controlFenBilimleri,
                       keyboardType: TextInputType.number,
                       validator: (value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            value.contains(RegExp(r'^[a-zA-Z\-]'))) {
-                          return 'Use only numbers!';
-                        }
-                      },
-                      onFieldSubmitted: (value) {
-                        setState(() {
-                          bodyTemp = value;
-                          // bodyTempList.add(bodyTemp);
-                        });
-                      },
-                      onChanged: (value) {
-                        setState(() {
-                          bodyTemp = value;
-                        });
+                        if (value == null || value.isEmpty) {
+                          return 'Boş bırakılamaz.';
+                        } /*else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
+                          return 'Lütfen netinizi girin.';
+                        }*/
                       },
                     ),
                     const SizedBox(
@@ -296,28 +268,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       controller: controlObpPuan,
                       keyboardType: TextInputType.number,
                       validator: (value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            value.contains(RegExp(r'^[a-zA-Z\-]'))) {
-                          return 'Use only numbers!';
-                        }
-                      },
-                      onFieldSubmitted: (value) {
-                        setState(() {
-                          bodyTemp = value;
-                          // bodyTempList.add(bodyTemp);
-                        });
-                      },
-                      onChanged: (value) {
-                        setState(() {
-                          bodyTemp = value;
-                        });
+                        if (value == null || value.isEmpty) {
+                          return 'Boş bırakılamaz.';
+                        } /*else if (value.contains(RegExp(r'^[0-9_\-=@,\.;]+$'))) {
+                          return 'Lütfen netinizi girin.';
+                        }*/
                       },
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    Container(
+                    /*Container(
                       width: MediaQuery.of(context).size.width,
                       height: 60,
                       child: const Align(
@@ -335,6 +296,29 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           borderRadius: BorderRadius.circular(10)
                       ),
+                    ),*/
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.green,
+                          minimumSize: const Size.fromHeight(60)),
+                      onPressed: () {
+                        // Validate returns true if the form is valid, or false otherwise.
+                        if (_formKey.currentState!.validate()) {
+                          //_submit();
+                          netTurkce = num.parse(controlTurkce.text);
+                          netSosyalBilimler = num.parse(controlSosyalBilimler
+                              .text);
+                          netTemelMatematik = num.parse(controlTemelMatematik
+                              .text);
+                          netFenBilimleri = num.parse(controlFenBilimleri.text);
+                          obpPuan = num.parse(controlObpPuan.text);
+
+                          result = netTurkce + netSosyalBilimler +
+                              netTemelMatematik + netFenBilimleri + obpPuan;
+                        }
+
+                      },
+                      child: const Text("Hesapla"),
                     ),
                     const SizedBox(
                       height: 40,
@@ -348,12 +332,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: TextStyle(fontSize: 22))
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: 40,
-                      child: const Align(
+                      child: Align(
                         alignment: Alignment.center,
-                        child: Text('Text',
+                        child: Text("$result",
                         style: TextStyle(fontSize: 20))
                       ),
                     ),
