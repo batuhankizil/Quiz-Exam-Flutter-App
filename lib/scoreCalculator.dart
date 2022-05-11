@@ -278,25 +278,41 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(
                       height: 20,
                     ),
-                    /*Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 60,
-                      child: const Align(
-                        alignment: Alignment.center,
-                        child: Text("Hesapla",
-                          style: TextStyle(fontSize: 17, color: Colors.white),
-                          textAlign: TextAlign.center,
+
+                    /*GestureDetector(
+                      onTap: () {
+                        netTurkce = num.parse(controlTurkce.text);
+                        netSosyalBilimler = num.parse(controlSosyalBilimler
+                            .text);
+                        netTemelMatematik = num.parse(controlTemelMatematik
+                            .text);
+                        netFenBilimleri = num.parse(controlFenBilimleri.text);
+                        obpPuan = num.parse(controlObpPuan.text);
+
+                        result = netTurkce*1.32 + netSosyalBilimler*1.36 +
+                            netTemelMatematik*1.32 + netFenBilimleri*1.36 + obpPuan + 100;
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 60,
+                        child: const Align(
+                          alignment: Alignment.center,
+                          child: Text("Hesapla",
+                            style: TextStyle(fontSize: 17, color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.green, Colors.green.shade800],
+                              begin: Alignment.bottomLeft,
+                              end: Alignment.topRight,
+                            ),
+                            borderRadius: BorderRadius.circular(10)
                         ),
                       ),
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [Colors.green, Colors.green.shade800],
-                            begin: Alignment.bottomLeft,
-                            end: Alignment.topRight,
-                          ),
-                          borderRadius: BorderRadius.circular(10)
-                      ),
                     ),*/
+
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         primary: Colors.green,
@@ -313,8 +329,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           netFenBilimleri = num.parse(controlFenBilimleri.text);
                           obpPuan = num.parse(controlObpPuan.text);
 
-                          result = netTurkce + netSosyalBilimler +
-                              netTemelMatematik + netFenBilimleri + obpPuan;
+                          result = netTurkce*1.32 + netSosyalBilimler*1.36 +
+                              netTemelMatematik*1.32 + netFenBilimleri*1.36 + obpPuan + 100;
                         }
 
                       },
