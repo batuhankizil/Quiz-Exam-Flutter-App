@@ -318,7 +318,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         primary: Colors.green,
                           minimumSize: const Size.fromHeight(60)),
                       onPressed: () {
-                        // Validate returns true if the form is valid, or false otherwise.
                         if (_formKey.currentState!.validate()) {
                           //_submit();
                           netTurkce = num.parse(controlTurkce.text);

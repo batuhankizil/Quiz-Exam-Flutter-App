@@ -1,20 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sinavproje/Tyt/turkishPage.dart';
 
-class tytScreen extends StatefulWidget {
-  const tytScreen({Key? key}) : super(key: key);
+class turkishPage extends StatefulWidget {
+  const turkishPage({Key? key}) : super(key: key);
 
   @override
-  State<tytScreen> createState() => _tytScreenState();
+  State<turkishPage> createState() => _turkishPageState();
 }
 
-class _tytScreenState extends State<tytScreen> {
+class _turkishPageState extends State<turkishPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TYT'),
+        title: const Text('Türkçe'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -26,29 +25,35 @@ class _tytScreenState extends State<tytScreen> {
         ),
       ),
       body: ListView(
-        children: [
+        children: const [
           Card(
               child: ListTile(
-                title:Text("Matematik"),
+                title:Text("Sözcük Anlamı"),
               )
           ),
           Card(
             child: ListTile(
-              title: Text("Türkçe"),
-              onTap: (){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => turkishPage()),);
-              },
+              title: Text("Deyim ve Atasözü"),
             ),
           ),
           Card(
               child: ListTile(
-                title: Text("Sosyal Bilimleri"),
+                title: Text("Cümle Anlamı"),
               )
           ),
           Card(
               child: ListTile(
-                title: Text("Fen Bilimleri"),
+                title: Text("Cümle Yorumu"),
+              )
+          ),
+          Card(
+              child: ListTile(
+                title: Text("Ses Bilgisi"),
+              )
+          ),
+          Card(
+              child: ListTile(
+                title: Text("Noktalama İşaretleri"),
               )
           ),
         ],

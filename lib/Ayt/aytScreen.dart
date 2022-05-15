@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sinavproje/Ayt/mathPage.dart';
 
 class aytScreen extends StatefulWidget {
   const aytScreen({Key? key}) : super(key: key);
@@ -26,10 +27,14 @@ class _aytScreenState extends State<aytScreen> {
         ),
       ),
       body: ListView(
-        children: const [
+        children: [
           Card(
               child: ListTile(
                 title:Text("Matematik"),
+                onTap: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => mathPage()),);
+                },
               )
           ),
           Card(
