@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sinavproje/Ayt/temelKavramlar.dart';
 
 class mathPage extends StatefulWidget {
   const mathPage({Key? key}) : super(key: key);
@@ -24,10 +25,14 @@ class _mathPageState extends State<mathPage> {
       ),
     ),
       body: ListView(
-        children: const [
+        children: [
           Card(
               child: ListTile(
                 title:Text("Temel Kavramlar"),
+                onTap: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => temelKavramlar()),);
+                },
               )
           ),
           Card(

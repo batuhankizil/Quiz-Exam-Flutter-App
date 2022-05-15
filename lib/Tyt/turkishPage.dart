@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sinavproje/Tyt/sozcukAnlami.dart';
 
 class turkishPage extends StatefulWidget {
   const turkishPage({Key? key}) : super(key: key);
@@ -25,10 +26,14 @@ class _turkishPageState extends State<turkishPage> {
         ),
       ),
       body: ListView(
-        children: const [
+        children: [
           Card(
               child: ListTile(
                 title:Text("Sözcük Anlamı"),
+                onTap: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => sozcukAnlami()),);
+                },
               )
           ),
           Card(
