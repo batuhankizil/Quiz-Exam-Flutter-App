@@ -320,16 +320,19 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           //_submit();
-                          netTurkce = num.parse(controlTurkce.text);
-                          netSosyalBilimler = num.parse(controlSosyalBilimler
-                              .text);
-                          netTemelMatematik = num.parse(controlTemelMatematik
-                              .text);
-                          netFenBilimleri = num.parse(controlFenBilimleri.text);
-                          obpPuan = num.parse(controlObpPuan.text);
+                          setState(() {
+                            netTurkce = num.parse(controlTurkce.text);
+                            netSosyalBilimler = num.parse(controlSosyalBilimler
+                                .text);
+                            netTemelMatematik = num.parse(controlTemelMatematik
+                                .text);
+                            netFenBilimleri = num.parse(controlFenBilimleri.text);
+                            obpPuan = num.parse(controlObpPuan.text);
 
-                          result = netTurkce*1.32 + netSosyalBilimler*1.36 +
-                              netTemelMatematik*1.32 + netFenBilimleri*1.36 + obpPuan + 100;
+                            result = netTurkce*1.32 + netSosyalBilimler*1.36 +
+                                netTemelMatematik*1.32 + netFenBilimleri*1.36 + obpPuan + 100;
+                          });
+
                         }
 
                       },
