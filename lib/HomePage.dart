@@ -7,6 +7,7 @@ import 'package:sinavproje/favNotes.dart';
 import 'package:sinavproje/my_drawer_header.dart';
 import 'package:sinavproje/questionsPage.dart';
 import 'package:sinavproje/scoreCalculator.dart';
+import 'package:sinavproje/trueFalse.dart';
 
 void main() => runApp(HomePage());
 
@@ -180,6 +181,8 @@ class HomePage extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 print('Deneme');
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => trueFalse()),);
               },
               child: Container(
                 padding: const EdgeInsets.all(8),
@@ -188,7 +191,7 @@ class HomePage extends StatelessWidget {
                 textAlign: TextAlign.center,),*/
                 child: const Align(
                   alignment: Alignment.center,
-                  child: Text("Denemeler",
+                  child: Text("Doğru Yanlış",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),

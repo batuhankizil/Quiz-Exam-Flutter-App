@@ -1,3 +1,4 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -27,24 +28,18 @@ class _appAboutScreenState extends State<appAboutScreen> {
           ),
         ),
       ),
-      body: Center(
-        child: StreamBuilder(
-          stream: FirebaseFirestore.instance
-          .collection('appAbout')
-          .snapshots(),
-          builder: (context, AsyncSnapshot<QuerySnapshot> snapshot){
-
-            var querySnapshot;
+        body: StreamBuilder(
+          stream: FirebaseFirestore.instance.collection('test').snapshots(),
+          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if(!snapshot.hasData) return Text('Loading data.');
             return ListView(
-              children: querySnapshot.docs.map((appAbout) {
-                return Center(
-                  child: ListTile(
-                    title: Text(appAbout['title1']),
-                  ),
-                );
-              }).toList(),
+              children: snapshot.data!.docs.map((document){
+                return Text(document['name']);
+            }).toList(),
             );
-          }),
+          },
+        ),
+    );
         /*child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -59,7 +54,5 @@ class _appAboutScreenState extends State<appAboutScreen> {
             Container(child: Text('Toplanan veri türleriyle ve gizlilik bilgileri bölümünde görüntülenen farklı kullanım alanlarıyla ilgili açıklamaların yer aldığı listeyi inceleyebilirsiniz. \n Uygulamanın, farklı veri toplama prosedürlerine uyan birden fazla kullanım senaryosu varsa gizlilik bilgileri bölümünde tüm prosedürler ve bu prosedürlerde verilerin nasıl kullanıldığı sunulmalıdır. Örneğin, uygulamanın ücretli ve ücretsiz sürümlerinde farklı veri toplama prosedürleri kullanılıyorsa her iki durumda toplanan veri türlerinin tamamı belirtilmelidir. Ayrıca uygulamanın yalnızca çocuklara yönelik sürümüyle yetişkin sürümü arasında farklılıklar, değişik bölgelerde veri toplanmasıyla ilgili farklılıklar ve uygulamayı kullanım şeklinize bağlı başka farklılıklar olabilir. Uygulama geliştiricisinin gizlilik politikasında, veri toplama prosedürlerinin çeşitli durumlarda nasıl farklılaşabileceği hakkında daha ayrıntılı bilgi bulunabilir. \n Geliştirici, uygulamanın içinde sizden bilgi istiyorsa gizlilik bilgileri bölümünde bu verileri de açıklamalıdır. Verinin nadiren toplandığı ve veri toplama işleminin uygulamanın birincil işlevinin parçası olmadığı, hangi verilerin toplandığının kullanıcı deneyimi sırasında net bir şekilde anlaşıldığı, hesap bilgilerinizin veya adınızın belirgin biçimde göründüğü ve bilgileri paylaşmayı net olarak seçtiğiniz sınırlı durumlarda geliştirici, toplanan veri türünü açıklamamayı tercih edebilir. Ayrıca uygulamaların, uygulama içi satın alma işlemlerinde kullanılan ödeme bilgileri veya Uygulama Analizi gibi yalnızca Anonim tarafından toplanan bilgileri beyan etmesi gerekmez. Uygulamaların, düzenlemeye tabi finansal servisleri kolaylaştırdıkları ve veri toplama faaliyetinin belirli koşulları karşıladığı veya etik inceleme kurulu tarafından incelenmiş bir sağlık araştırması gibi veri toplama faaliyetinin bilgilendirilmiş onay gerektirdiği durumlarda da toplanan verileri beyan etmeleri gerekmez.', style: TextStyle(color: HexColor("5E5E5E")),),margin: EdgeInsets.all(10),),
           ],
         ),*/
-      ),
-    );
   }
 }
