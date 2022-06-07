@@ -28,6 +28,9 @@ class AuthService {
     var user = await _auth.createUserWithEmailAndPassword(
         email: email, password: password);
 
+    await FirebaseAuth.instance.currentUser?.updateProfile(displayName: name);
+
+
     await _firestore
         .collection("person")
         .doc(user.user?.uid)

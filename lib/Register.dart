@@ -101,7 +101,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
         child: Column(
           children: [
-            /// Login & Welcome back
             Container(
               height: 210,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 35),
@@ -150,6 +149,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               TextField(
+                                textCapitalization: TextCapitalization.characters,
+
                                 style: const TextStyle(fontSize: 15),
                                 decoration:  InputDecoration(
                                     errorText: _validateFullName ? 'Ad Soyad Girin' : null,
@@ -160,6 +161,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     hintStyle: TextStyle(fontSize: 14, color: Colors.grey)
                                 ),
                                 controller: _nameController,
+
                               ),
                               const Divider(color: Colors.black54, height: 1),
                               TextField(
@@ -211,8 +213,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               _emailController.text.isEmpty ? _validateMail = true : _validateMail = false;
                               _passwordController.text.isEmpty ? _validatePassword = true : _validatePassword = false;
                               _passwordAgainController.text.isEmpty ? _validatepasswordAgain = true : _validatepasswordAgain = false;
-                              FirebaseAuth.instance.createUserWithEmailAndPassword(email: _emailController.text, password: _passwordController.text).then((value) =>
+                              _authService.createPerson(_nameController.text, _emailController.text, _passwordController.text).then((value) =>
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage())));
+                              /*FirebaseAuth.instance.createUserWithEmailAndPassword(email: _emailController.text, password: _passwordController.text).then((value) =>
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage())));*/
                             },
                             child: Container(
                               //margin: const EdgeInsets.symmetric(horizontal: 25),

@@ -7,6 +7,8 @@ import 'package:sinavproje/Service/auth.dart';
 import 'package:sinavproje/Login.dart';
 import 'package:sinavproje/appAboutScreen.dart';
 
+import 'countdown.dart';
+
 class MainDrawer extends StatelessWidget {
 
   final Future<FirebaseApp> _initfirebase = Firebase.initializeApp();
@@ -26,12 +28,18 @@ class MainDrawer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CircleAvatar(
+              /*const CircleAvatar(
                 radius: 50.0,
-                backgroundImage: NetworkImage(
-                  "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
-                ),
+                backgroundImage:
+                NetworkImage(
+                  "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"),
                 backgroundColor: Colors.white,
+              ),*/
+              CircleAvatar(radius: (60),
+                  backgroundColor: Colors.green,
+                  child: ClipRRect(
+                    child: Image.asset("assets/app_icon.png",fit:BoxFit.fill, height: 60,),
+                  )
               ),
               const SizedBox(
                 height: 5.0,
@@ -54,26 +62,31 @@ class MainDrawer extends StatelessWidget {
                 ),
               ),*/
               const SizedBox(
+                height: 10,
+              ),
+              FutureBuilder(
+                future: _initfirebase,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return Text("${_auth.currentUser?.displayName}",style: TextStyle(fontSize: 18));
+                  } else {
+                    return CircularProgressIndicator();
+                  }
+                },
+              ),
+              const SizedBox(
                 height: 5.0,
               ),
               FutureBuilder(
                 future: _initfirebase,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
-                    return Text("${_auth.currentUser?.email}");
+                    return Text("${_auth.currentUser?.email}",style: TextStyle(fontSize: 18));
                   } else {
                     return CircularProgressIndicator();
                   }
                 },
               ),
-              /*const Text(
-                "batu@gmail.com",
-                style: TextStyle(
-                  color: Colors.black38,
-                  fontSize: 16.0,
-                ),
-              ),*/
-
             ],
           ),
         ),
@@ -85,22 +98,27 @@ class MainDrawer extends StatelessWidget {
         thickness: 1,
         //color: Colors.green,
       ),
+      const SizedBox(
+        height: 20.0,
+      ),
       ListTile(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => countdown()));
+        },
         leading: const Icon(
           Icons.timelapse,
           color: Colors.black,
         ),
-        title: Text("Zamanlayıcı"),
+        title: Text("Sınava Kalan Süre"),
       ),
-      ListTile(
+      /*ListTile(
         onTap: () {},
         leading: const Icon(
           Icons.settings,
           color: Colors.black,
         ),
         title: Text("Ayarlar"),
-      ),
+      ),*/
       ListTile(
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => appAboutScreen()));
@@ -110,6 +128,13 @@ class MainDrawer extends StatelessWidget {
           color: Colors.black,
         ),
         title: Text("Edulive Hakkında"),
+      ),
+      const SizedBox(
+        height: 20.0,
+      ),
+      const Divider(
+        thickness: 1,
+        //color: Colors.green,
       ),
       ListTile(
         onTap: () async {

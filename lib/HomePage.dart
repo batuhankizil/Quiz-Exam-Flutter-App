@@ -7,6 +7,7 @@ import 'package:sinavproje/favNotes.dart';
 import 'package:sinavproje/my_drawer_header.dart';
 import 'package:sinavproje/questionsPage.dart';
 import 'package:sinavproje/scoreCalculator.dart';
+import 'package:sinavproje/test.dart';
 import 'package:sinavproje/trueFalse.dart';
 
 void main() => runApp(HomePage());
@@ -129,6 +130,8 @@ class HomePage extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 print('Quiz');
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => test()),);
               },
               child: Container(
                 padding: const EdgeInsets.all(8),

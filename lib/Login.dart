@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sinavproje/HomePage.dart';
 import 'package:sinavproje/Register.dart';
 import 'package:sinavproje/Service/auth.dart';
@@ -9,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sinavproje/Login.dart';
 import 'package:sinavproje/my_drawer_header.dart';
 import 'package:validators/validators.dart';
+
 
 
 class LoginScreen extends StatefulWidget {
@@ -133,7 +135,6 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         child: Column(
           children: [
-            /// Login & Welcome back
             Container(
               height: 210,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 35),
@@ -218,9 +219,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               _emailController.text.isEmpty ? _validateMail = true : _validateMail = false;
                               _passwordController.text.isEmpty ? _validatePassword = true : _validatePassword = false;
                             });
-                            _authService.signIn(_emailController.text, _passwordController.text).then((value) {
+                            /*_authService.signIn(_emailController.text, _passwordController.text).then((value) {
                               Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
-                            });
+                            });*/
+                            _buildLoginButton();
+                            _loginFunction();
                           },
                           child: Container(
                             //margin: const EdgeInsets.symmetric(horizontal: 25),
@@ -284,6 +287,67 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+  Widget _buildLoginButton() {
+    return InkWell(onTap: () => _loginFunction(), child: _buildLoginButtonContainer());
+  }
+
+  Widget _buildLoginButtonContainer() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 5),
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.white, width: 2), borderRadius: BorderRadius.all(Radius.circular(30))),
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Center(child: _buildLoginButtonText()),
+      ),
+    );
+  }
+
+  Widget _buildLoginButtonText() {
+    return Text(
+      "Giriş yap",
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
+      ),
+    );
+  }
+
+  void _loginFunction() {
+    _authService.signIn(_emailController.text, _passwordController.text).then((value) {
+      return Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+    }).catchError((dynamic error) {
+      if (error.code.contains('invalid-email')) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text("Lütfen mail formatı giriniz"),
+        ));
+      }
+      if (error.code.contains('user-not-found')) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text("Böyle bir kullanıcı yok"),
+        ));
+      }
+      if (error.code.contains('wrong-password')) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text("Şifreniz yanlış"),
+        ));
+      }
+
+      //  _buildErrorMessage(error.message);
+
+      print(error.message);
+    });
+  }
+
+  void _buildErrorMessage(String text) {
+    Fluttertoast.showToast(
+        msg: text,
+        timeInSecForIosWeb: 2,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.grey[600],
+        textColor: Colors.white,
+        fontSize: 14);
+  }
+
 }
-
-

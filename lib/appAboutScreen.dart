@@ -13,6 +13,8 @@ class appAboutScreen extends StatefulWidget {
 
 class _appAboutScreenState extends State<appAboutScreen> {
 
+  final db = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,17 +30,60 @@ class _appAboutScreenState extends State<appAboutScreen> {
           ),
         ),
       ),
-        body: StreamBuilder(
-          stream: FirebaseFirestore.instance.collection('test').snapshots(),
-          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if(!snapshot.hasData) return Text('Loading data.');
-            return ListView(
-              children: snapshot.data!.docs.map((document){
-                return Text(document['name']);
-            }).toList(),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: db.collection('appAbout').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
             );
-          },
-        ),
+          } else {
+            return ListView(
+              children: snapshot.data!.docs.map((doc) {
+                return Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(doc['title1'],style: TextStyle(color: HexColor("5E5E5E"),fontSize: 20,fontWeight: FontWeight.bold)),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['context1'],style: TextStyle(color: HexColor("5E5E5E"))),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['title2'],style: TextStyle(color: HexColor("5E5E5E"),fontSize: 20,fontWeight: FontWeight.bold)),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['context2']),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['title3'],style: TextStyle(color: HexColor("5E5E5E"),fontSize: 20,fontWeight: FontWeight.bold)),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['context3']),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['title4'],style: TextStyle(color: HexColor("5E5E5E"),fontSize: 20,fontWeight: FontWeight.bold)),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['context4']),
+
+
+                    ],
+                  ),
+                );
+              }).toList(),
+            );
+          }
+        },
+      ),
     );
         /*child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
