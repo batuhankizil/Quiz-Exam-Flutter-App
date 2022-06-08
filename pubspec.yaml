@@ -36,6 +36,8 @@ dependencies:
   fluttertoast: ^8.0.9
   flutter_countdown_timer: ^4.1.0
   flutter_timer_countdown: ^1.0.3
+  firebase_storage: ^10.2.17
+  image_picker: ^0.8.5+3
 
 
 

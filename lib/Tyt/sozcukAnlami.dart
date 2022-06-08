@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -10,11 +11,14 @@ class sozcukAnlami extends StatefulWidget {
 }
 
 class _sozcukAnlamiState extends State<sozcukAnlami> {
+
+  final db = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Temel Kavramlar'),
+        title: Text('Sözcük Anlamı'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -25,7 +29,62 @@ class _sozcukAnlamiState extends State<sozcukAnlami> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
+      body: StreamBuilder<QuerySnapshot>(
+        stream: db.collection('sozcukAnlami').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return ListView(
+              children: snapshot.data!.docs.map((doc) {
+                return Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(doc['title1'],style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['context1']),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['title2'],style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['context2']),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['title3'],style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['context3']),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['title4'],style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(doc['context4']),
+
+
+                    ],
+                  ),
+                );
+              }).toList(),
+            );
+          }
+        },
+      ),
+
+      /*body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -37,11 +96,11 @@ class _sozcukAnlamiState extends State<sozcukAnlami> {
             Container(child: Text('Gerçek Anlam', style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),margin: EdgeInsets.all(10),),
             Container(child: Text('Bir sözcüğün tek başına kullanıldığında tanımlanabilen anlamı, gerçek ya da temel anlam olarak adlandırılır. Kelimelerin sözlük anlamı da gerçek anlamdır. Gerçek anlam genellikle sözcüğün akla gelen ilk anlamı da olmaktadır. \n\n ⇒ Uyanır uyanmaz perdeyi açıp pencereden dışa baktım. \n\n Perde” kelimesini duyduğumuzda aklımıza ilk olarak “pencerelerin önüne takılıp ışığın girmesini engellemeye yarayan örtü” gelir. Bu cümlede “perde” sözcüğü aklımıza ilk gelen bu anlamıyla kullanıldığından gerçek anlam taşımaktadır.'),margin: EdgeInsets.all(10),),
             Container(child: Text('Yan Anlam', style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),margin: EdgeInsets.all(10),),
-            Container(child: Text('Yan anlamda kullanılan sözcükler gerçek anlamdan yola çıkılarak bir benzerlik sonrasında oluşmuştur. Yani bir varlığın ismi, şekil olarak ya da işlevsel olarak benzerlik kurulabilen başka bir varlıktan alınmıştır. Burada dikkat edilmesi gereken husus, sözcüğün gerçek anlamdan tam olarak kopmamış olmasıdır.\n\n 0’dan küçük tam sayılara negatif tam sayılar denir ve ” Z− “ ile gösterilir. Z− = { −1, −2, −3, … }\n\n ⇒ Çok zorlayınca kapının kolu kırıldı.', style: TextStyle(color: HexColor("5E5E5E")),),margin: EdgeInsets.all(10),),
+            Container(child: Text('Yan anlamda kullanılan sözcükler gerçek anlamdan yola çıkılarak bir benzerlik sonrasında oluşmuştur. Yani bir varlığın ismi, şekil olarak ya da işlevsel olarak benzerlik kurulabilen başka bir varlıktan alınmıştır. Burada dikkat edilmesi gereken husus, sözcüğün gerçek anlamdan tam olarak kopmamış olmasıdır.', style: TextStyle(color: HexColor("5E5E5E")),),margin: EdgeInsets.all(10),),
           ],
         ),
 
-      ),
+      ),*/
     );
   }
 }
