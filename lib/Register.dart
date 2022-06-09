@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sinavproje/Login.dart';
 import 'package:sinavproje/Service/auth.dart';
 
@@ -12,9 +13,11 @@ class RegisterScreen extends StatefulWidget {
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
+
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+
   final formKey = GlobalKey<FormState>();
   String name = "";
 
@@ -27,6 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _passwordAgainController = TextEditingController();
+
 
   AuthService _authService = AuthService();
 
@@ -149,8 +153,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               TextField(
-                                textCapitalization: TextCapitalization.characters,
-
+                                textCapitalization: TextCapitalization.sentences,
                                 style: const TextStyle(fontSize: 15),
                                 decoration:  InputDecoration(
                                     errorText: _validateFullName ? 'Ad Soyad Girin' : null,
@@ -161,7 +164,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     hintStyle: TextStyle(fontSize: 14, color: Colors.grey)
                                 ),
                                 controller: _nameController,
-
                               ),
                               const Divider(color: Colors.black54, height: 1),
                               TextField(
@@ -209,12 +211,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         const SizedBox(height: 35),
                         MaterialButton(
                             onPressed: (){
-                              _nameController.text.isEmpty ? _validateFullName = true : _validateFullName = false;
-                              _emailController.text.isEmpty ? _validateMail = true : _validateMail = false;
-                              _passwordController.text.isEmpty ? _validatePassword = true : _validatePassword = false;
-                              _passwordAgainController.text.isEmpty ? _validatepasswordAgain = true : _validatepasswordAgain = false;
-                              _authService.createPerson(_nameController.text, _emailController.text, _passwordController.text).then((value) =>
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage())));
+                              setState(() {
+                                _nameController.text.isEmpty ? _validateFullName = true : _validateFullName = false;
+                                _emailController.text.isEmpty ? _validateMail = true : _validateMail = false;
+                                _passwordController.text.isEmpty ? _validatePassword = true : _validatePassword = false;
+                                _passwordAgainController.text.isEmpty ? _validatepasswordAgain = true : _validatepasswordAgain = false;
+                              });
+
+                              if(_passwordController.text != _passwordAgainController.text){
+                                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                                  content: Text("Şifreler aynı değil"),
+                                ));
+                              }
+                              else if(_passwordController.text.length < 6){
+                                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                                  content: Text("Şifreniz en az 6 karakter olmalı"),
+                                ));
+                              }
+                              else if(_nameController.text == null){
+                                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                                  content: Text("Şifreniz en az 6 karakter olmalı"),
+                                ));
+                              }
+                              else{
+                                _authService.createPerson(_nameController.text, _emailController.text, _passwordController.text).then((value) =>
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage())));
+                              }
+
+                              _buildLoginButton();
+                              _loginFunction();
                               /*FirebaseAuth.instance.createUserWithEmailAndPassword(email: _emailController.text, password: _passwordController.text).then((value) =>
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage())));*/
                             },
@@ -265,7 +290,48 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ],
         ),
       ),
-
     );
   }
+  Widget _buildLoginButton() {
+    return InkWell(onTap: () => _loginFunction(), child: _buildLoginButtonContainer());
+  }
+
+  Widget _buildLoginButtonContainer() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 5),
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.white, width: 2), borderRadius: BorderRadius.all(Radius.circular(30))),
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Center(child: _buildLoginButtonText()),
+      ),
+    );
+  }
+
+  Widget _buildLoginButtonText() {
+    return Text(
+      "Giriş yap",
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
+      ),
+    );
+  }
+
+  void _loginFunction() {
+    _authService.signIn(_emailController.text, _passwordController.text).then((value) {
+      return Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+    }).catchError((dynamic error) {
+      if (error.code.contains('invalid-email')) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text("Lütfen mail formatı giriniz"),
+        ));
+      }
+      //  _buildErrorMessage(error.message);
+
+      print(error.message);
+    });
+
+  }
+
 }
