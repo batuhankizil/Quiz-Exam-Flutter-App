@@ -228,12 +228,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   content: Text("Şifreniz en az 6 karakter olmalı"),
                                 ));
                               }
-                              else if(_nameController.text == null){
-                                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                                  content: Text("Şifreniz en az 6 karakter olmalı"),
-                                ));
-                              }
-                              else{
+                              else if(_nameController.text.isNotEmpty){
                                 _authService.createPerson(_nameController.text, _emailController.text, _passwordController.text).then((value) =>
                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage())));
                               }
