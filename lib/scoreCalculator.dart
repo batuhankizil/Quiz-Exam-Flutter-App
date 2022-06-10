@@ -329,10 +329,14 @@ class _MyHomePageState extends State<MyHomePage> {
                             netFenBilimleri = num.parse(controlFenBilimleri.text);
                             obpPuan = num.parse(controlObpPuan.text);
 
-                            result = netTurkce*1.32 + netSosyalBilimler*1.36 +
-                                netTemelMatematik*1.32 + netFenBilimleri*1.36 + obpPuan + 100;
+                            result = netTurkce*3.3 + netSosyalBilimler*3.4 +
+                                netTemelMatematik*3.3 + netFenBilimleri*3.4 + obpPuan*0.6 + 100;
                           });
-
+                          /*if(netTurkce > 40 || netTemelMatematik > 40 || netFenBilimleri > 40 || netSosyalBilimler > 40){
+                            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                              content: Text("Netiniz 40'dan fazla olamaz"),
+                            ));
+                          }*/
                         }
 
                       },

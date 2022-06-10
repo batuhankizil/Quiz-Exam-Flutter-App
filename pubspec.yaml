@@ -38,6 +38,12 @@ dependencies:
   flutter_timer_countdown: ^1.0.3
   firebase_storage: ^10.2.17
   image_picker: ^0.8.5+3
+  get: ^4.6.5
+
+  websafe_svg: ^2.1.1
+  flutter_svg: ^1.0.3
+
+
 
 
 
