@@ -38,10 +38,10 @@ class _countdownState extends State<countdown> {
                 child: ListView(
                   children: [
                     SizedBox(
-                      height: 200,
+                      height: 150,
                     ),
                     Text(
-                      "Üniversite Sınavına Kalan Süre",
+                      "Tyt Sınavına Kalan Süre",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -54,7 +54,50 @@ class _countdownState extends State<countdown> {
                       format: CountDownTimerFormat.daysHoursMinutesSeconds,
                       endTime: DateTime.now().add(
                         Duration(
-                          days: 10,
+                          days: 7,
+                          hours: 10,
+                          minutes: 10,
+                          seconds: 25,
+                        ),
+                      ),
+                      /*onEnd: () {
+                        print("Timer finished");
+                      },*/
+                      timeTextStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                      ),
+                      colonsTextStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                      ),
+                      descriptionTextStyle: TextStyle(
+                        color: Colors.blueGrey,
+                        fontSize: 18,
+                      ),
+                    ),
+
+
+                    SizedBox(
+                      height: 50,
+                    ),
+
+
+                    Text(
+                      "Ayt Sınavına Kalan Süre",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TimerCountdown(
+                      format: CountDownTimerFormat.daysHoursMinutesSeconds,
+                      endTime: DateTime.now().add(
+                        Duration(
+                          days: 14,
                           hours: 10,
                           minutes: 10,
                           seconds: 25,

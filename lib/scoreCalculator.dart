@@ -320,18 +320,26 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           //_submit();
-                          setState(() {
-                            netTurkce = num.parse(controlTurkce.text);
-                            netSosyalBilimler = num.parse(controlSosyalBilimler
-                                .text);
-                            netTemelMatematik = num.parse(controlTemelMatematik
-                                .text);
-                            netFenBilimleri = num.parse(controlFenBilimleri.text);
-                            obpPuan = num.parse(controlObpPuan.text);
+                          if(netTurkce > 40){
+                            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                              content: Text("Şifreniz en az 6 karakter olmalı"),
+                            ));
+                          }
+                          else if(netTurkce <= 40){
+                            setState(() {
+                              netTurkce = num.parse(controlTurkce.text);
+                              netSosyalBilimler = num.parse(controlSosyalBilimler
+                                  .text);
+                              netTemelMatematik = num.parse(controlTemelMatematik
+                                  .text);
+                              netFenBilimleri = num.parse(controlFenBilimleri.text);
+                              obpPuan = num.parse(controlObpPuan.text);
 
-                            result = netTurkce*3.3 + netSosyalBilimler*3.4 +
-                                netTemelMatematik*3.3 + netFenBilimleri*3.4 + obpPuan*0.6 + 100;
-                          });
+                              result = netTurkce*3.3 + netSosyalBilimler*3.4 +
+                                  netTemelMatematik*3.3 + netFenBilimleri*3.4 + obpPuan*0.6 + 100;
+                            });
+                          }
+
                           /*if(netTurkce > 40 || netTemelMatematik > 40 || netFenBilimleri > 40 || netSosyalBilimler > 40){
                             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               content: Text("Netiniz 40'dan fazla olamaz"),
@@ -374,37 +382,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class MyProfilePage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _MyProfilePageState();
-}
-
-class _MyProfilePageState extends State<MyProfilePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My profile'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(children: <Widget>[
-          Row(children: <Widget>[
-            const Text("New data",
-                style: TextStyle(
-                  fontSize: 24,
-                )),
-            const Spacer(),
-            ElevatedButton(
-              child: const Text('New'),
-              onPressed: () => Navigator.pop(context),
-            )
-          ]),
-        ]),
-      ),
-    );
-  }
-}
 
 extension StringExtension on String {
   // Method used for capitalizing the input from the form
