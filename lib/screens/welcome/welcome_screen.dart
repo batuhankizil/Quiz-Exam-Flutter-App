@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sinavproje/constants.dart';
 import 'package:sinavproje/screens/quiz/quiz_screen.dart';
+import 'package:sinavproje/screens/quiz/quiz_screen_matematik.dart';
 
 import '../../HomePage.dart';
 
@@ -125,7 +126,7 @@ class WelcomeScreen extends StatelessWidget {
                     onTap: () {
                       print('Tıklandı');
                       Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => QuizScreen()),);
+                        MaterialPageRoute(builder: (context) => QuizScreenMatematik()),);
 
                     },
                     child: Container(

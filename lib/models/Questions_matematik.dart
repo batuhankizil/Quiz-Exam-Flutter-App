@@ -1,16 +1,16 @@
-class Question {
+class QuestionMatematik {
   final int id, answer;
   final String question;
   final List<String> options;
 
-  Question({required this.id, required this.question, required this.answer, required this.options});
+  QuestionMatematik({required this.id, required this.question, required this.answer, required this.options});
 }
 
-const List sample_data = [
+const List sample_data_matematik = [
   {
     "id": 1,
     "question":
-        "Türkçe",
+        "Matematik",
     "options": ['a', 'b', 'c', 'd'],
     "answer_index": 1,
   },
