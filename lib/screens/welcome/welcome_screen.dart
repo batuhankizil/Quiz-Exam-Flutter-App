@@ -9,6 +9,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.green[700],
       body: Stack(
         children: [
           SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill,),
@@ -18,7 +19,7 @@ class WelcomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Spacer(flex: 2), //2/6
+                  /*Spacer(flex: 2), //2/6
                   GestureDetector(
                     child: Container(
                       alignment: Alignment.topCenter,
@@ -53,8 +54,8 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
 
-                  Spacer(), // 1/6
-                  GestureDetector(
+                  Spacer(),*/ // 1/6
+                  /*GestureDetector(
                     child: Container(
                       alignment: Alignment.center,
                       height: 100,
@@ -70,7 +71,7 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ),
                     )
-                  ),
+                  ),*/
                   Spacer(), // 1/6
                   InkWell(
                     onTap: () => Get.to(QuizScreen()),
@@ -83,7 +84,7 @@ class WelcomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                       ),
                       child: Text(
-                        "Lets Start Quiz",
+                        "Quizi Başlat",
                         style: Theme.of(context)
                             .textTheme
                             .button

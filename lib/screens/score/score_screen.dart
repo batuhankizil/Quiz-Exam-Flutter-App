@@ -19,7 +19,7 @@ class ScoreScreen extends StatelessWidget {
             children: [
               Spacer(flex: 3),
               Text(
-                "Score",
+                "Sonuç",
                 style: Theme.of(context)
                     .textTheme
                     .headline3
@@ -47,7 +47,7 @@ class ScoreScreen extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
                   child: Text(
-                    "Play Again",
+                    "Tekrar",
                     style: Theme.of(context)
                         .textTheme
                         .button

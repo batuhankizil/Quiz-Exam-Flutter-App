@@ -24,11 +24,8 @@ class ProgressBar extends StatelessWidget {
         builder: (controller) {
           return Stack(
             children: [
-              // LayoutBuilder provide us the available space for the conatiner
-              // constraints.maxWidth needed for our animation
               LayoutBuilder(
                 builder: (context, constraints) => Container(
-                  // from 0 to 1 it takes 60s
                   width: constraints.maxWidth * controller.animation.value,
                   decoration: BoxDecoration(
                     gradient: kPrimaryGradient,
@@ -43,7 +40,7 @@ class ProgressBar extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("${(controller.animation.value * 60).round()} sec"),
+                      Text("${(controller.animation.value * 60).round()} Saniye"),
                       SvgPicture.asset("assets/icons/clock.svg"),
                     ],
                   ),
