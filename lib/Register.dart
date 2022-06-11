@@ -232,7 +232,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 _authService.createPerson(_nameController.text, _emailController.text, _passwordController.text).then((value) =>
                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage())));
                               }
-
                               _buildLoginButton();
                               _loginFunction();
                               /*FirebaseAuth.instance.createUserWithEmailAndPassword(email: _emailController.text, password: _passwordController.text).then((value) =>
@@ -315,18 +314,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   void _loginFunction() {
     _authService.signIn(_emailController.text, _passwordController.text).then((value) {
-      return Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+      //return Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
     }).catchError((dynamic error) {
       if (error.code.contains('invalid-email')) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text("Lütfen mail formatı giriniz"),
         ));
       }
-      //  _buildErrorMessage(error.message);
-
+      else if(error.code == 'email-already-in-use') {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text("DFGDFGFDFDFD"),
+        ));
+      }
       print(error.message);
     });
-
   }
+
 
 }

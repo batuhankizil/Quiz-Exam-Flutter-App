@@ -137,17 +137,21 @@ class MainDrawer extends StatelessWidget {
         //color: Colors.green,
       ),
       ListTile(
-        onTap: () async {
+        onTap: () {
           /*await FirebaseAuth.instance.signOut();
           Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
         },*/
-          await FirebaseAuth.instance.signOut();
+
+          /*await FirebaseAuth.instance.signOut();
           Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-          builder: (context) => LoginScreen(),
-          ),
-          (route) => false);
+              context,
+              MaterialPageRoute(
+                builder: (context) => LoginScreen(),
+              ),
+                  (route) => false);*/
+
+          _showDialog(context);
+
         },
 
         leading: const Icon(
@@ -158,4 +162,38 @@ class MainDrawer extends StatelessWidget {
       ),
     ]);
   }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Çıkış yapmak istiyor musun ?"),
+          //content: Text("Çıkış yapılıyor"),
+          actions: <Widget>[
+            TextButton(
+              child: Text("Hayır"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text("Evet"),
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                        (route) => false);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
 }
