@@ -1,25 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sinavproje/Ayt/edebiyatPage.dart';
-import 'package:sinavproje/Ayt/fenBilimleriPage.dart';
-import 'package:sinavproje/Ayt/mathPage.dart';
-import 'package:sinavproje/Ayt/sosyalBilimlerPage.dart';
-import 'package:sinavproje/Ayt/yabanciDilPage.dart';
 
-class aytScreen extends StatefulWidget {
-  const aytScreen({Key? key}) : super(key: key);
+import 'biyocesitlilik.dart';
+import 'biyomlar.dart';
+import 'ekosisteminUnsulari.dart';
+import 'kureselIklim.dart';
+
+class cografyaPage extends StatefulWidget {
+  const cografyaPage({Key? key}) : super(key: key);
 
   @override
-  State<aytScreen> createState() => _aytScreenState();
+  State<cografyaPage> createState() => _cografyaPageState();
 }
 
-class _aytScreenState extends State<aytScreen> {
+class _cografyaPageState extends State<cografyaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green.shade400,
       appBar: AppBar(
-        title: const Text('AYT'),
+        title: const Text('Coğrafya'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -34,46 +34,37 @@ class _aytScreenState extends State<aytScreen> {
         children: [
           Card(
               child: ListTile(
-                title:Text("Matematik"),
+                title:Text("Biyoçeşitlilik"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => mathPage()),);
+                    MaterialPageRoute(builder: (context) => biyocesitlilik()),);
                 },
               )
           ),
           Card(
             child: ListTile(
-              title: Text("Türk Dili ve Edebiyatı"),
+              title: Text("Küresel İklim Değişimi"),
               onTap: (){
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => edebiyatPage()),);
+                  MaterialPageRoute(builder: (context) => kureselIklim()),);
               },
             ),
           ),
           Card(
               child: ListTile(
-                title: Text("Sosyal Bilimler"),
+                title: Text("Biyomlar"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => sosyalBilimlerPage()),);
+                    MaterialPageRoute(builder: (context) => biyomlar()),);
                 },
               )
           ),
           Card(
               child: ListTile(
-                title: Text("Fen Bilimleri"),
+                title: Text("Ekosistemin Unsurları"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => fenBilimleriPage()),);
-                },
-              )
-          ),
-          Card(
-              child: ListTile(
-                title: Text("Yabancı Dil"),
-                onTap: (){
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => yabanciDilPage()),);
+                    MaterialPageRoute(builder: (context) => ekosisteminUnsulari()),);
                 },
               )
           ),

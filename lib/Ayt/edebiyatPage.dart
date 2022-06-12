@@ -1,25 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sinavproje/Ayt/anlamBilgisi.dart';
 import 'package:sinavproje/Ayt/bolmeBolunebilme.dart';
+import 'package:sinavproje/Ayt/dilBilgisi.dart';
+import 'package:sinavproje/Ayt/guzelSanatlar.dart';
+import 'package:sinavproje/Ayt/metinlerinSiniflandirilmasi.dart';
 import 'package:sinavproje/Ayt/mutlakDeger.dart';
 import 'package:sinavproje/Ayt/rasyonelSayilar.dart';
 import 'package:sinavproje/Ayt/sayiBasamaklari.dart';
+import 'package:sinavproje/Ayt/siirBilgisi.dart';
 import 'package:sinavproje/Ayt/temelKavramlar.dart';
 
-class mathPage extends StatefulWidget {
-  const mathPage({Key? key}) : super(key: key);
+class edebiyatPage extends StatefulWidget {
+  const edebiyatPage({Key? key}) : super(key: key);
 
   @override
-  State<mathPage> createState() => _mathPageState();
+  State<edebiyatPage> createState() => _edebiyatPageState();
 }
 
-class _mathPageState extends State<mathPage> {
+class _edebiyatPageState extends State<edebiyatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green.shade400,
       appBar: AppBar(
-      title: const Text('Matematik'),
+      title: const Text('Edebiyat'),
       flexibleSpace: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -34,46 +39,46 @@ class _mathPageState extends State<mathPage> {
         children: [
           Card(
               child: ListTile(
-                title:Text("Temel Kavramlar"),
+                title:Text("Anlam Bilgisi"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => temelKavramlar()),);
+                    MaterialPageRoute(builder: (context) => anlamBilgisi()),);
                 },
               )
           ),
           Card(
             child: ListTile(
-              title: Text("Sayı Basamakları"),
+              title: Text("Dil Bilgisi"),
               onTap: (){
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => sayiBasamaklari()),);
+                  MaterialPageRoute(builder: (context) => dilBilgisi()),);
               },
             ),
           ),
           Card(
               child: ListTile(
-                title: Text("Bölme ve Bölünebilme"),
+                title: Text("Güzel Sanatlar ve Edebiyat"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => bolmeBolunebilme()),);
+                    MaterialPageRoute(builder: (context) => guzelSanatlar()),);
                 },
               )
           ),
           Card(
               child: ListTile(
-                title: Text("Rasyonel Sayılar"),
+                title: Text("Metinlerin Sınıflandırılması"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => rasyonelSayilar()),);
+                    MaterialPageRoute(builder: (context) => metinlerinSiniflandirilmasi()),);
                 },
               )
           ),
           Card(
               child: ListTile(
-                title: Text("Mutlak Değer"),
+                title: Text("Şiir Bilgisi"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => mutlakDeger()),);
+                    MaterialPageRoute(builder: (context) => siirBilgisi()),);
                 },
               )
           ),

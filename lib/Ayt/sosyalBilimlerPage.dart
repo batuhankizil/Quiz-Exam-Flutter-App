@@ -1,25 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sinavproje/Ayt/edebiyatPage.dart';
-import 'package:sinavproje/Ayt/fenBilimleriPage.dart';
-import 'package:sinavproje/Ayt/mathPage.dart';
-import 'package:sinavproje/Ayt/sosyalBilimlerPage.dart';
-import 'package:sinavproje/Ayt/yabanciDilPage.dart';
+import 'package:sinavproje/Ayt/ilkTurkDevletleri.dart';
+import 'package:sinavproje/Ayt/islamTarihi.dart';
+import 'package:sinavproje/Ayt/tarihBilimineGiris.dart';
+import 'package:sinavproje/Ayt/turkIslamDevletleri.dart';
+import 'package:sinavproje/Ayt/uygarliginDogusu.dart';
 
-class aytScreen extends StatefulWidget {
-  const aytScreen({Key? key}) : super(key: key);
+class sosyalBilimlerPage extends StatefulWidget {
+  const sosyalBilimlerPage({Key? key}) : super(key: key);
 
   @override
-  State<aytScreen> createState() => _aytScreenState();
+  State<sosyalBilimlerPage> createState() => _sosyalBilimlerPageState();
 }
 
-class _aytScreenState extends State<aytScreen> {
+class _sosyalBilimlerPageState extends State<sosyalBilimlerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green.shade400,
       appBar: AppBar(
-        title: const Text('AYT'),
+        title: const Text('Sosyal Bilimler'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -34,46 +34,46 @@ class _aytScreenState extends State<aytScreen> {
         children: [
           Card(
               child: ListTile(
-                title:Text("Matematik"),
+                title:Text("Tarih Bilimine Giriş"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => mathPage()),);
+                    MaterialPageRoute(builder: (context) => tarihBilimineGiris()),);
                 },
               )
           ),
           Card(
             child: ListTile(
-              title: Text("Türk Dili ve Edebiyatı"),
+              title: Text("Uygarlığın Doğuşu ve İlk Uygarlıklar"),
               onTap: (){
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => edebiyatPage()),);
+                  MaterialPageRoute(builder: (context) => uygarliginDogusu()),);
               },
             ),
           ),
           Card(
               child: ListTile(
-                title: Text("Sosyal Bilimler"),
+                title: Text("İlk Türk Devletleri"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => sosyalBilimlerPage()),);
+                    MaterialPageRoute(builder: (context) => ilkTurkDevletleri()),);
                 },
               )
           ),
           Card(
               child: ListTile(
-                title: Text("Fen Bilimleri"),
+                title: Text("İslam Tarihi ve Uygarlığı"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => fenBilimleriPage()),);
+                    MaterialPageRoute(builder: (context) => islamTarihi()),);
                 },
               )
           ),
           Card(
               child: ListTile(
-                title: Text("Yabancı Dil"),
+                title: Text("Türk-İslam Devletleri"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => yabanciDilPage()),);
+                    MaterialPageRoute(builder: (context) => turkIslamDevletleri()),);
                 },
               )
           ),

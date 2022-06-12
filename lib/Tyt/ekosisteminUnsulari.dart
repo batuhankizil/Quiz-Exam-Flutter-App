@@ -3,22 +3,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class temelKavramlar extends StatefulWidget {
-  const temelKavramlar({Key? key}) : super(key: key);
+class ekosisteminUnsulari extends StatefulWidget {
+  const ekosisteminUnsulari({Key? key}) : super(key: key);
 
   @override
-  State<temelKavramlar> createState() => _temelKavramlarState();
+  State<ekosisteminUnsulari> createState() => _ekosisteminUnsulariState();
 }
 
-class _temelKavramlarState extends State<temelKavramlar> {
-
+class _ekosisteminUnsulariState extends State<ekosisteminUnsulari> {
   final db = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Temel Kavramlar'),
+        title: Text('Ekosistemin Unsurları'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -30,7 +29,7 @@ class _temelKavramlarState extends State<temelKavramlar> {
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: db.collection('temelKavramlar').snapshots(),
+        stream: db.collection('ekosisteminUnsulari').snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
@@ -73,8 +72,9 @@ class _temelKavramlarState extends State<temelKavramlar> {
                         height: 10.0,
                       ),
                       Text(doc['context4']),
-
-
+                      const SizedBox(
+                        height: 10.0,
+                      ),
                     ],
                   ),
                 );

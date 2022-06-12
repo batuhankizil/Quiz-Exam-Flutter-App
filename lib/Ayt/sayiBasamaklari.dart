@@ -3,14 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class temelKavramlar extends StatefulWidget {
-  const temelKavramlar({Key? key}) : super(key: key);
+class sayiBasamaklari extends StatefulWidget {
+  const sayiBasamaklari({Key? key}) : super(key: key);
 
   @override
-  State<temelKavramlar> createState() => _temelKavramlarState();
+  State<sayiBasamaklari> createState() => _sayiBasamaklariState();
 }
 
-class _temelKavramlarState extends State<temelKavramlar> {
+class _sayiBasamaklariState extends State<sayiBasamaklari> {
 
   final db = FirebaseFirestore.instance;
 
@@ -18,7 +18,7 @@ class _temelKavramlarState extends State<temelKavramlar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Temel Kavramlar'),
+        title: Text('Sayı Basamakları'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -30,7 +30,7 @@ class _temelKavramlarState extends State<temelKavramlar> {
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: db.collection('temelKavramlar').snapshots(),
+        stream: db.collection('sayiBasamaklari').snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
@@ -65,14 +65,6 @@ class _temelKavramlarState extends State<temelKavramlar> {
                         height: 10.0,
                       ),
                       Text(doc['context3']),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(doc['title4'],style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(doc['context4']),
 
 
                     ],

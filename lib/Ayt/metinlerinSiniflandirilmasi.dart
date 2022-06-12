@@ -3,22 +3,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class temelKavramlar extends StatefulWidget {
-  const temelKavramlar({Key? key}) : super(key: key);
+class metinlerinSiniflandirilmasi extends StatefulWidget {
+  const metinlerinSiniflandirilmasi({Key? key}) : super(key: key);
 
   @override
-  State<temelKavramlar> createState() => _temelKavramlarState();
+  State<metinlerinSiniflandirilmasi> createState() => _metinlerinSiniflandirilmasiState();
 }
 
-class _temelKavramlarState extends State<temelKavramlar> {
-
+class _metinlerinSiniflandirilmasiState extends State<metinlerinSiniflandirilmasi> {
   final db = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Temel Kavramlar'),
+        title: Text('Metinlerin Sınıflandırılması'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -30,7 +29,7 @@ class _temelKavramlarState extends State<temelKavramlar> {
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: db.collection('temelKavramlar').snapshots(),
+        stream: db.collection('metinlerinSiniflandirilmasi').snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
@@ -65,15 +64,6 @@ class _temelKavramlarState extends State<temelKavramlar> {
                         height: 10.0,
                       ),
                       Text(doc['context3']),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(doc['title4'],style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(doc['context4']),
-
 
                     ],
                   ),

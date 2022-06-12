@@ -3,22 +3,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class temelKavramlar extends StatefulWidget {
-  const temelKavramlar({Key? key}) : super(key: key);
+class maddeninHalleri extends StatefulWidget {
+  const maddeninHalleri({Key? key}) : super(key: key);
 
   @override
-  State<temelKavramlar> createState() => _temelKavramlarState();
+  State<maddeninHalleri> createState() => _maddeninHalleriState();
 }
 
-class _temelKavramlarState extends State<temelKavramlar> {
-
+class _maddeninHalleriState extends State<maddeninHalleri> {
   final db = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Temel Kavramlar'),
+        title: Text('Maddenin Halleri'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -30,7 +29,7 @@ class _temelKavramlarState extends State<temelKavramlar> {
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: db.collection('temelKavramlar').snapshots(),
+        stream: db.collection('maddeninHalleri').snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
@@ -73,8 +72,9 @@ class _temelKavramlarState extends State<temelKavramlar> {
                         height: 10.0,
                       ),
                       Text(doc['context4']),
-
-
+                      const SizedBox(
+                        height: 10.0,
+                      ),
                     ],
                   ),
                 );

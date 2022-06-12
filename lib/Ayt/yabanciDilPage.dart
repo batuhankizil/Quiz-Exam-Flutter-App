@@ -1,25 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sinavproje/Tyt/kimyaPage.dart';
-import 'package:sinavproje/Tyt/turkishPage.dart';
 
-import 'cografyaPage.dart';
-import 'matematikPage.dart';
+import 'cumleyiTamamlama.dart';
+import 'dilBilgisiIng.dart';
+import 'kelimeBilgisi.dart';
 
-class tytScreen extends StatefulWidget {
-  const tytScreen({Key? key}) : super(key: key);
+class yabanciDilPage extends StatefulWidget {
+  const yabanciDilPage({Key? key}) : super(key: key);
 
   @override
-  State<tytScreen> createState() => _tytScreenState();
+  State<yabanciDilPage> createState() => _yabanciDilPageState();
 }
 
-class _tytScreenState extends State<tytScreen> {
+class _yabanciDilPageState extends State<yabanciDilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green.shade400,
       appBar: AppBar(
-        title: const Text('TYT'),
+        title: const Text('Yabancı Dil'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -34,37 +33,28 @@ class _tytScreenState extends State<tytScreen> {
         children: [
           Card(
               child: ListTile(
-                title:Text("Matematik"),
+                title:Text("Kelime Bilgisi"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => matematikPage()),);
+                    MaterialPageRoute(builder: (context) => kelimeBilgisi()),);
                 },
               )
           ),
           Card(
             child: ListTile(
-              title: Text("Türkçe"),
+              title: Text("Dil Bilgisi"),
               onTap: (){
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => turkishPage()),);
+                  MaterialPageRoute(builder: (context) => dilBilgisiIng()),);
               },
             ),
           ),
           Card(
               child: ListTile(
-                title: Text("Coğrafya"),
+                title: Text("Cümleyi Tamamlama"),
                 onTap: (){
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => cografyaPage()),);
-                },
-              )
-          ),
-          Card(
-              child: ListTile(
-                title: Text("Kimya"),
-                onTap: (){
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => kimyaPage()),);
+                    MaterialPageRoute(builder: (context) => cumleyiTamamlama()),);
                 },
               )
           ),
