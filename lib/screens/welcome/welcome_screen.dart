@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sinavproje/constants.dart';
 import 'package:sinavproje/screens/quiz/quiz_screen.dart';
+import 'package:sinavproje/screens/quiz/quiz_screen_ingilizce.dart';
 import 'package:sinavproje/screens/quiz/quiz_screen_matematik.dart';
 
 import '../../HomePage.dart';
@@ -26,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
         ),
       ),
 
-      backgroundColor: Colors.amber.shade300,
+      backgroundColor: Colors.lightGreenAccent.shade100,
       body: Stack(
         children: [
           //SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill,),
@@ -158,7 +159,7 @@ class WelcomeScreen extends StatelessWidget {
                     onTap: () {
                       print('Tıklandı');
                       Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => QuizScreen()),);
+                        MaterialPageRoute(builder: (context) => QuizScreenIngilizce()),);
 
                     },
                     child: Container(
@@ -215,6 +216,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+
 
 
                   /*TextButton(onPressed: (){
