@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sinavproje/Ayt/aytScreen.dart';
 import 'package:sinavproje/Tyt/tytScreen.dart';
+import 'package:sinavproje/countdown.dart';
 import 'package:sinavproje/favNotes.dart';
 import 'package:sinavproje/my_drawer_header.dart';
 import 'package:sinavproje/questionsPage.dart';
@@ -17,7 +18,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
                 textAlign: TextAlign.center,),*/
                 child: const Align(
                   alignment: Alignment.center,
-                  child: Text("AYT",
+                  child: Text("TYT",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
                 textAlign: TextAlign.center,),*/
                 child: const Align(
                   alignment: Alignment.center,
-                  child: Text("TYT",
+                  child: Text("AYT",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
@@ -157,7 +157,8 @@ class HomePage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                print('İstatistikler');
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => countdown()),);
               },
               child: Container(
                 padding: const EdgeInsets.all(8),
@@ -166,7 +167,7 @@ class HomePage extends StatelessWidget {
                 textAlign: TextAlign.center,),*/
                 child: const Align(
                   alignment: Alignment.center,
-                  child: Text("İstatistikler",
+                  child: Text("Sayaç",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),

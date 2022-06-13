@@ -167,7 +167,7 @@ class WelcomeScreen extends StatelessWidget {
                 textAlign: TextAlign.center,),*/
                       child: const Align(
                         alignment: Alignment.center,
-                        child: Text("İngilizce",
+                        child: Text("Sosyal Bilgiler",
                           style: TextStyle(fontSize: 18, color: Colors.white),
                           textAlign: TextAlign.center,
                         ),

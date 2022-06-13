@@ -25,7 +25,9 @@ class _testState extends State<test> {
       return GetMaterialApp(
         title: 'Quiz App',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark(),
+        theme: ThemeData.from(
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green),
+        ),
         home: WelcomeScreen(),
       );
 

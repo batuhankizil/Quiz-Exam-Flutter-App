@@ -43,14 +43,14 @@ class Body extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headline4
-                          ?.copyWith(color: kSecondaryColor),
+                          ?.copyWith(color: Colors.black),
                       children: [
                         TextSpan(
                           text: "/${_questionController.questions.length}",
                           style: Theme.of(context)
                               .textTheme
                               .headline5
-                              ?.copyWith(color: kSecondaryColor),
+                              ?.copyWith(color: Colors.black),
                         ),
                       ],
                     ),

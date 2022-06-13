@@ -101,7 +101,7 @@ class MainDrawer extends StatelessWidget {
       const SizedBox(
         height: 20.0,
       ),
-      ListTile(
+      /*ListTile(
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => countdown()));
         },
@@ -110,7 +110,7 @@ class MainDrawer extends StatelessWidget {
           color: Colors.black,
         ),
         title: Text("Sınava Kalan Süre"),
-      ),
+      ),*/
       /*ListTile(
         onTap: () {},
         leading: const Icon(
