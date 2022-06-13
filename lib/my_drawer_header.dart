@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sinavproje/Service/auth.dart';
 import 'package:sinavproje/Login.dart';
 import 'package:sinavproje/appAboutScreen.dart';
+import 'package:sinavproje/favNotes2.dart';
 
 import 'countdown.dart';
 
@@ -136,6 +137,17 @@ class MainDrawer extends StatelessWidget {
         thickness: 1,
         //color: Colors.green,
       ),
+      ListTile(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => favNotesScreen2()));
+        },
+        leading: const Icon(
+          Icons.info_outline,
+          color: Colors.black,
+        ),
+        title: Text("Kamera"),
+      ),
+
       ListTile(
         onTap: () {
           /*await FirebaseAuth.instance.signOut();
