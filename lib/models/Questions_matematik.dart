@@ -12,7 +12,7 @@ const List sample_data_matematik = [
     "question":
         "Matematikk",
     "options": ['a', 'b', 'c', 'd'],
-    "answer_index": 1,
+    "answer_index": 2,
   },
   {
     "id": 2,

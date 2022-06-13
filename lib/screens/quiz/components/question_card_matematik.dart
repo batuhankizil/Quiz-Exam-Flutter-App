@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sinavproje/controllers/question_controller.dart';
 import 'package:sinavproje/controllers/question_controller_matematik.dart';
 import 'package:sinavproje/models/Questions.dart';
+import 'package:sinavproje/screens/quiz/components/option_matematik.dart';
 
 import '../../../constants.dart';
 import '../../../models/Questions_matematik.dart';
@@ -39,7 +40,7 @@ class QuestionCardMatematik extends StatelessWidget {
           SizedBox(height: kDefaultPadding / 2),
           ...List.generate(
             questionmatematik.options.length,
-            (index) => Option(
+            (index) => OptionMatematik(
               index: index,
               text: questionmatematik.options[index],
               press: () => _controller.checkAns(questionmatematik, index),
