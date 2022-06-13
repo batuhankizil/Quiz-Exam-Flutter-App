@@ -5,6 +5,7 @@ import 'package:sinavproje/constants.dart';
 import 'package:sinavproje/controllers/question_controller.dart';
 import 'package:sinavproje/screens/quiz/quiz_screen.dart';
 import 'package:sinavproje/screens/welcome/welcome_screen.dart';
+import 'package:sinavproje/test.dart';
 
 class ScoreScreen extends StatelessWidget {
   @override
@@ -46,13 +47,18 @@ class ScoreScreen extends StatelessWidget {
                     gradient: kPrimaryGradient,
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
-                  child: Text(
+                  child: TextButton(
+                      onPressed: (){
+                        Navigator.pop(context, MaterialPageRoute(builder: (context)=>test()),);
+                      },
+                      child: const Text('Tekrar', style: TextStyle(color: Colors.green),))
+                  /*Text(
                     "Tekrar",
                     style: Theme.of(context)
                         .textTheme
                         .button
                         ?.copyWith(color: Colors.black, fontSize: 30),
-                  ),
+                  ),*/
                 ),
               ),
               Spacer(), // it will take 2/6 spaces
