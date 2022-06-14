@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import 'HomePage.dart';
 
@@ -14,6 +15,19 @@ class _favNotesScreenState extends State<favNotesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Çalışma Programı'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.green, Colors.green.shade800],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+            ),
+          ),
+        ),
+      ),
+
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -26,29 +40,8 @@ class _favNotesScreenState extends State<favNotesScreen> {
         ),
         child: Column(
           children: [
-            Container(
-              height: 120,
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: TextButton.icon(
-                      onPressed: () {
-                        Navigator.pop(context, MaterialPageRoute(builder: (context) => HomePage()));
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                        size: 24.0,
-                      ),
-                      label: const Text('Kaydedilen Notlar', style: TextStyle(color: Colors.white),),
-                    ),
-                    ),
-                ],
-              ),
+            const SizedBox(
+              height: 80,
             ),
             Expanded(
               flex: 3,
@@ -63,16 +56,14 @@ class _favNotesScreenState extends State<favNotesScreen> {
                 ),
                 child: SingleChildScrollView(
                     child: Column(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 25),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text('Pazartesi',style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
+                              Text('Test',style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
+
                             ],
-                          ),
-                        ),
-                      ],
                     )
                 ),
               ),

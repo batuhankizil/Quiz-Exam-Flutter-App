@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
                 textAlign: TextAlign.center,),*/
                 child: const Align(
                   alignment: Alignment.center,
-                  child: Text("Kaydedilen Notlar",
+                  child: Text("Çalışma Programı",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),
