@@ -8,6 +8,7 @@ import 'package:sinavproje/Register.dart';
 import 'package:sinavproje/Service/auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sinavproje/Login.dart';
+import 'package:sinavproje/forgotPassword.dart';
 import 'package:sinavproje/my_drawer_header.dart';
 import 'package:validators/validators.dart';
 
@@ -254,7 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             children: [
                               TextButton(
                                   onPressed: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>RegisterScreen()),);
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>forgotPassword()),);
                                   },
                                   child: const Text('Şifremi Unuttum?', style: TextStyle(color: Colors.black45)))
                             ],
@@ -315,7 +316,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _loginFunction() {
     _authService.signIn(_emailController.text, _passwordController.text).then((value) {
-      return Navigator.pop(context, MaterialPageRoute(builder: (context) => HomePage()));
+      return Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
     }).catchError((dynamic error) {
       if (error.code.contains('invalid-email')) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
