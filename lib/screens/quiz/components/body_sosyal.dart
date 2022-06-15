@@ -5,14 +5,16 @@ import 'package:sinavproje/constants.dart';
 import 'package:sinavproje/controllers/question_controller.dart';
 import 'package:sinavproje/controllers/question_controller_matematik.dart';
 import 'package:sinavproje/models/Questions.dart';
-import 'package:sinavproje/screens/quiz/components/progress_bar_matematik.dart';
+import 'package:sinavproje/screens/quiz/components/progress_bar_sosyal.dart';
 import 'package:sinavproje/screens/quiz/components/question_card_matematik.dart';
+import 'package:sinavproje/screens/quiz/components/question_card_sosyal.dart';
 
+import '../../../controllers/question_controller_sosyal.dart';
 import 'progress_bar.dart';
 import 'question_card.dart';
 
-class BodyMatematik extends StatelessWidget {
-  const BodyMatematik({
+class BodySosyal extends StatelessWidget {
+  const BodySosyal({
     Key? key,
   }) : super(key: key);
 
@@ -21,7 +23,7 @@ class BodyMatematik extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // So that we have acccess our controller
-    QuestionControllerMatematik _questionController = Get.put(QuestionControllerMatematik());
+    QuestionControllerSosyal _questionController = Get.put(QuestionControllerSosyal());
     return Stack(
       children: [
         SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill),
@@ -32,7 +34,7 @@ class BodyMatematik extends StatelessWidget {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: ProgressBarMatematik(),
+                child: ProgressBarSosyal(),
               ),
               SizedBox(height: kDefaultPadding),
               Padding(
@@ -69,8 +71,8 @@ class BodyMatematik extends StatelessWidget {
                   controller: _questionController.pageController,
                   onPageChanged: _questionController.updateTheQnNum,
                   itemCount: _questionController.questions.length,
-                  itemBuilder: (context, index) => QuestionCardMatematik(
-                      questionmatematik: _questionController.questions[index]),
+                  itemBuilder: (context, index) => QuestionCardSosyal(
+                      questionsosyal: _questionController.questions[index]),
                 ),
               ),
             ],

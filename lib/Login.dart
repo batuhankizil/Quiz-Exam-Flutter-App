@@ -315,7 +315,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _loginFunction() {
     _authService.signIn(_emailController.text, _passwordController.text).then((value) {
-      return Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+      return Navigator.pop(context, MaterialPageRoute(builder: (context) => HomePage()));
     }).catchError((dynamic error) {
       if (error.code.contains('invalid-email')) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:sinavproje/constants.dart';
 import 'package:sinavproje/screens/quiz/quiz_screen.dart';
 import 'package:sinavproje/screens/quiz/quiz_screen_matematik.dart';
+import 'package:sinavproje/screens/quiz/quiz_screen_sosyal.dart';
 
 import '../../HomePage.dart';
 
@@ -127,7 +128,6 @@ class WelcomeScreen extends StatelessWidget {
                       print('Tıklandı');
                       Navigator.push(context,
                         MaterialPageRoute(builder: (context) => QuizScreenMatematik()),);
-
                     },
                     child: Container(
                       padding: const EdgeInsets.all(8),
@@ -157,8 +157,8 @@ class WelcomeScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       print('Tıklandı');
-
-
+                      Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => QuizScreenSosyal()),);
                     },
                     child: Container(
                       padding: const EdgeInsets.all(8),

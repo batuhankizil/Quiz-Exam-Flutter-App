@@ -5,10 +5,11 @@ import 'package:sinavproje/models/Questions.dart';
 import 'package:sinavproje/screens/score/score_screen.dart';
 
 import '../models/Questions_matematik.dart';
+import '../models/Questions_sosyal.dart';
 
 // We use get package for our state management
 
-class QuestionControllerMatematik extends GetxController
+class QuestionControllerSosyal extends GetxController
     with SingleGetTickerProviderMixin {
   // Lets animated our progress bar
 
@@ -20,16 +21,16 @@ class QuestionControllerMatematik extends GetxController
   late PageController _pageController;
   PageController get pageController => this._pageController;
 
-  List<QuestionMatematik> _questions = sample_data_matematik
+  List<QuestionSosyal> _questions = sample_data_sosyal
       .map(
-        (question) => QuestionMatematik(
+        (question) => QuestionSosyal(
             id: question['id'],
             question: question['question'],
             options: question['options'],
             answer: question['answer_index']),
-      ).cast<QuestionMatematik>()
+      ).cast<QuestionSosyal>()
       .toList();
-  List<QuestionMatematik> get questions => this._questions;
+  List<QuestionSosyal> get questions => this._questions;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -75,10 +76,10 @@ class QuestionControllerMatematik extends GetxController
     _pageController.dispose();
   }
 
-  void checkAns(QuestionMatematik QuestionMatematik, int selectedIndex) {
+  void checkAns(QuestionSosyal QuestionSosyal, int selectedIndex) {
     // because once user press any option then it will run
     _isAnswered = true;
-    _correctAns = QuestionMatematik.answer;
+    _correctAns = QuestionSosyal.answer;
     _selectedAns = selectedIndex;
 
     if (_correctAns == _selectedAns) _numOfCorrectAns++;
