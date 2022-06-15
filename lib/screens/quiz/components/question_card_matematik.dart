@@ -35,7 +35,7 @@ class QuestionCardMatematik extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline6
-                ?.copyWith(color: Colors.black),
+                ?.copyWith(color: Colors.black, fontSize: 17),
           ),
           SizedBox(height: kDefaultPadding / 2),
           ...List.generate(

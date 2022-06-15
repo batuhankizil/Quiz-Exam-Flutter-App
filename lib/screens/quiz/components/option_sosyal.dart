@@ -52,7 +52,7 @@ class OptionSosyal extends StatelessWidget {
                 children: [
                   Text(
                     "${index + 1}. $text",
-                    style: TextStyle(color: Colors.black45, fontSize: 16),
+                    style: TextStyle(color: Colors.black45, fontSize: 15),
                   ),
                   Container(
                     height: 26,

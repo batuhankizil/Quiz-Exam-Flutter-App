@@ -41,7 +41,7 @@ class QuestionCardFen extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline6
-                ?.copyWith(color: Colors.black),
+                ?.copyWith(color: Colors.black, fontSize: 16),
           ),
           SizedBox(height: kDefaultPadding / 2),
           ...List.generate(

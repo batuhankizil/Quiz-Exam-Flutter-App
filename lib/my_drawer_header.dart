@@ -139,17 +139,6 @@ class MainDrawer extends StatelessWidget {
       ),
       ListTile(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => favNotesScreen2()));
-        },
-        leading: const Icon(
-          Icons.info_outline,
-          color: Colors.black,
-        ),
-        title: Text("Kamera"),
-      ),
-
-      ListTile(
-        onTap: () {
           /*await FirebaseAuth.instance.signOut();
           Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
         },*/

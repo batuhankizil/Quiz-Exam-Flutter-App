@@ -50,7 +50,7 @@ class OptionMatematik extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "${index + 1}. $text",
+                    "$text",
                     style: TextStyle(color: Colors.black45, fontSize: 16),
                   ),
                   Container(

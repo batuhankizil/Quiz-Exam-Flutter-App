@@ -60,59 +60,53 @@ class _favNotesScreenState extends State<favNotesScreen> {
                               const SizedBox(
                                 height: 20,
                               ),
-                              Text('Sayısal'),
+                              Text('Sayısal',style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
                               Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: Table(
                                     border: TableBorder.all(), // Allows to add a border decoration around your table
                                     children: [
                                       TableRow(children :[
-                                        Text('Pazartesi'),
-                                        Text('Salı'),
-                                        Text('Çarşamba'),
-                                        Text('Perşembe'),
+                                        Text('Pazartesi',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Salı',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Çarşamba',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Perşembe',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
                                       ]),
                                       TableRow(children :[
-                                        Text('2011',),
-                                        Text('Dart'),
-                                        Text('Lars Bak'),
-                                        Text('Lars Bak'),
+                                        Text('Matematik',),
+                                        Text('Fizik'),
+                                        Text('Biyoloji'),
+                                        Text('Mat Tekrar'),
                                       ]),
                                       TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
-                                        Text('James Gosling'),
+                                        Text('Matematik'),
+                                        Text('Fizik'),
+                                        Text('Kimya'),
+                                        Text('Geometri Tekrar'),
                                       ]),
                                       TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
-                                        Text('James Gosling'),
+                                        Text('Kimya'),
+                                        Text('Kimya'),
+                                        Text('Türkçe'),
+                                        Text('Kimya Tekrar'),
                                       ]),
                                       TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
-                                        Text('James Gosling'),
+                                        Text('Kimya'),
+                                        Text('Matematik'),
+                                        Text('Matematik'),
+                                        Text('Türkçe'),
                                       ]),
                                       TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
-                                        Text('James Gosling'),
+                                        Text('Fizik'),
+                                        Text('Geometri'),
+                                        Text('Geometri'),
+                                        Text('Sosyal Bilgiler'),
                                       ]),
                                       TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
-                                        Text('James Gosling'),
-                                      ]),
-                                      TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
-                                        Text('James Gosling'),
+                                        Text('Türkçe'),
+                                        Text('Geometri'),
+                                        Text('Geometri'),
+                                        Text('Fen Bilimleri'),
                                       ]),
                                     ]
                                 ),
@@ -123,96 +117,74 @@ class _favNotesScreenState extends State<favNotesScreen> {
                                     border: TableBorder.all(), // Allows to add a border decoration around your table
                                     children: [
                                       TableRow(children :[
-                                        Text('Cuma'),
-                                        Text('Cumartesi'),
-                                        Text('Pazar'),
+                                        Text('Cuma',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Cumartesi',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Pazar',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
                                       ]),
                                       TableRow(children :[
-                                        Text('2011',),
-                                        Text('Dart'),
-                                        Text('Lars Bak'),
+                                        Text('Matematik',),
+                                        Text('Geometri'),
+                                        Text('Tatil'),
                                       ]),
                                       TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
+                                        Text('Geometri'),
+                                        Text('Matematik'),
+                                        Text('Tatil'),
+                                      ]),
+                                      TableRow(children :[
+                                        Text('Türkçe'),
+                                        Text('Türkçe'),
+                                        Text('Tatil'),
+                                      ]),
+                                      TableRow(children :[
+                                        Text('Fen Bilimleri'),
+                                        Text('Sosyal Bilimler'),
+                                        Text('Tatil'),
                                       ]),
                                     ]
                                 ),
                               ),
-                              Text('Sözel'),
+                              Text('Sözel',style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
                               Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: Table(
                                     border: TableBorder.all(), // Allows to add a border decoration around your table
                                     children: [
                                       TableRow(children :[
-                                        Text('Pazartesi'),
-                                        Text('Salı'),
-                                        Text('Çarşamba'),
-                                        Text('Perşembe'),
+                                        Text('Pazartesi',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Salı',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Çarşamba',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Perşembe',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
                                       ]),
                                       TableRow(children :[
-                                        Text('2011',),
-                                        Text('Dart'),
-                                        Text('Lars Bak'),
-                                        Text('Lars Bak'),
+                                        Text('Türkçe',),
+                                        Text('Edebiyat'),
+                                        Text('Tarih'),
+                                        Text('Türkçe'),
                                       ]),
                                       TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
-                                        Text('James Gosling'),
-                                      ]),
-                                    ]
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(12),
-                                child: Table(
-                                    border: TableBorder.all(), // Allows to add a border decoration around your table
-                                    children: [
-                                      TableRow(children :[
-                                        Text('Cuma'),
-                                        Text('Cumartesi'),
-                                        Text('Pazar'),
+                                        Text('Türkçe'),
+                                        Text('Edebiyat'),
+                                        Text('Fen Bilimleri'),
+                                        Text('Edebiyat'),
                                       ]),
                                       TableRow(children :[
-                                        Text('2011',),
-                                        Text('Dart'),
-                                        Text('Lars Bak'),
+                                        Text('Edebiyat'),
+                                        Text('Fen Bilimleri'),
+                                        Text('Tarih'),
+                                        Text('Edebiyat'),
                                       ]),
                                       TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
-                                      ]),
-                                    ]
-                                ),
-                              ),
-                              Text('Eşit Ağırlık'),
-                              Padding(
-                                padding: const EdgeInsets.all(12),
-                                child: Table(
-                                    border: TableBorder.all(), // Allows to add a border decoration around your table
-                                    children: [
-                                      TableRow(children :[
-                                        Text('Pazartesi'),
-                                        Text('Salı'),
-                                        Text('Çarşamba'),
-                                        Text('Perşembe'),
+                                        Text('Edebiyat'),
+                                        Text('Matematik'),
+                                        Text('Edebiyat'),
+                                        Text('Türkçe'),
                                       ]),
                                       TableRow(children :[
-                                        Text('2011',),
-                                        Text('Dart'),
-                                        Text('Lars Bak'),
-                                        Text('Lars Bak'),
-                                      ]),
-                                      TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
-                                        Text('James Gosling'),
+                                        Text('Biyoloji'),
+                                        Text('Türkçe'),
+                                        Text('Sosyal Bilgiler'),
+                                        Text('Matematik'),
                                       ]),
                                     ]
                                 ),
@@ -223,19 +195,75 @@ class _favNotesScreenState extends State<favNotesScreen> {
                                     border: TableBorder.all(), // Allows to add a border decoration around your table
                                     children: [
                                       TableRow(children :[
-                                        Text('Cuma'),
-                                        Text('Cumartesi'),
-                                        Text('Pazar'),
+                                        Text('Cuma',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Cumartesi',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Pazar',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
                                       ]),
                                       TableRow(children :[
-                                        Text('2011',),
-                                        Text('Dart'),
-                                        Text('Lars Bak'),
+                                        Text('Geometri',),
+                                        Text('Matematik'),
+                                        Text('Tatil'),
                                       ]),
                                       TableRow(children :[
-                                        Text('1996'),
-                                        Text('Java'),
-                                        Text('James Gosling'),
+                                        Text('Türkçe'),
+                                        Text('Edebiyat'),
+                                        Text('Tatil'),
+                                      ]),
+                                    ]
+                                ),
+                              ),
+                              Text('Eşit Ağırlık',style: TextStyle(color: HexColor("32a852"),fontSize: 20,fontWeight: FontWeight.bold)),
+                              Padding(
+                                padding: const EdgeInsets.all(12),
+                                child: Table(
+                                    border: TableBorder.all(), // Allows to add a border decoration around your table
+                                    children: [
+                                      TableRow(children :[
+                                        Text('Pazartesi',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Salı',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Çarşamba',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Perşembe',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                      ]),
+                                      TableRow(children :[
+                                        Text('Matematik',),
+                                        Text('Edebiyat'),
+                                        Text('Türkçe'),
+                                        Text('Edebiyat'),
+                                      ]),
+                                      TableRow(children :[
+                                        Text('Türkçe'),
+                                        Text('Fen Bilimleri'),
+                                        Text('Sosyal Bilgiler'),
+                                        Text('Geometri'),
+                                      ]),
+                                      TableRow(children :[
+                                        Text('Türkçe'),
+                                        Text('Matematik'),
+                                        Text('Tarih'),
+                                        Text('Matematik'),
+                                      ]),
+                                    ]
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(12),
+                                child: Table(
+                                    border: TableBorder.all(), // Allows to add a border decoration around your table
+                                    children: [
+                                      TableRow(children :[
+                                        Text('Cuma',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Cumartesi',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                        Text('Pazar',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold)),
+                                      ]),
+                                      TableRow(children :[
+                                        Text('Matematik',),
+                                        Text('Fen Bilimleri'),
+                                        Text('Türkçe'),
+                                      ]),
+                                      TableRow(children :[
+                                        Text('Edebiyat'),
+                                        Text('İngilizce'),
+                                        Text('Matematik'),
                                       ]),
                                     ]
                                 ),
