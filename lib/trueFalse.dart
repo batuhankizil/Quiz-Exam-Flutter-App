@@ -100,10 +100,10 @@ class _trueFalseState extends State<trueFalse> {
                           setState(
                                 () {
                               if (test_1.soruBankasi[yanit].soruYaniti == false &&
-                                  yanit <= 6) {
+                                  yanit <= 15) {
                                 secimler.add(dogruIconu);
                                 yanit++;
-                              } else if (yanit <= 6) {
+                              } else if (yanit <= 15) {
                                 secimler.add(yanlisIconu);
                                 yanit++;
                               }
@@ -124,10 +124,10 @@ class _trueFalseState extends State<trueFalse> {
                         onPressed: () {
                           setState(() {
                             if (test_1.soruBankasi[yanit].soruYaniti == true &&
-                                yanit <= 6) {
+                                yanit <= 15) {
                               secimler.add(dogruIconu);
                               yanit++;
-                            } else if (yanit <= 6) {
+                            } else if (yanit <= 15) {
                               secimler.add(yanlisIconu);
                               yanit++;
                             }
