@@ -15,6 +15,9 @@ class _forgotPasswordState extends State<forgotPassword> {
 
   final TextEditingController _emailController = TextEditingController();
 
+  bool _validateMail = false;
+
+
   @override
   void dispose(){
     _emailController.dispose();
@@ -67,7 +70,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                         const SizedBox(height: 200),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 25),
-                          height: 60,
+                          height: 70,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                               color: Colors.white,
@@ -85,9 +88,10 @@ class _forgotPasswordState extends State<forgotPassword> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               TextField(
-                                textCapitalization: TextCapitalization.sentences,
+                                keyboardType: TextInputType.emailAddress,
                                 style: const TextStyle(fontSize: 15),
                                 decoration:  InputDecoration(
+                                    errorText: _validateMail ? 'Email Adresinizi Girin' : null,
                                     contentPadding: EdgeInsets.symmetric(horizontal: 10),
                                     border: InputBorder.none,
                                     hintText: 'Email',
@@ -102,8 +106,13 @@ class _forgotPasswordState extends State<forgotPassword> {
                         const SizedBox(height: 35),
                         MaterialButton(
                             onPressed: (){
-                              resetPassword();
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                              setState(() {
+                                _emailController.text.isEmpty ? _validateMail = true : _validateMail = false;
+                              });
+                              if(_emailController.text.isNotEmpty){
+                                resetPassword();
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                              }
                             },
                             child: Container(
                               //margin: const EdgeInsets.symmetric(horizontal: 25),
@@ -127,6 +136,21 @@ class _forgotPasswordState extends State<forgotPassword> {
                               ),
                             )
                         ),
+                        const SizedBox(height: 20),
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 36),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              TextButton(
+                                  onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()),);
+                                  },
+                                  child: const Text('Giriş Yap', style: TextStyle(color: Colors.black45, fontSize: 20)))
+                            ],
+                          ),
+                        ),
+
                       ],
                     )
                 ),
