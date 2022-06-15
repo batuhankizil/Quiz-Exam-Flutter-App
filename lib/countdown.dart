@@ -54,8 +54,8 @@ class _countdownState extends State<countdown> {
                       format: CountDownTimerFormat.daysHoursMinutesSeconds,
                       endTime: DateTime.now().add(
                         Duration(
-                          days: 7,
-                          hours: 8,
+                          days: 2,
+                          hours: 15,
                           minutes: 29,
                           seconds: 25,
                         ),
@@ -97,8 +97,8 @@ class _countdownState extends State<countdown> {
                       format: CountDownTimerFormat.daysHoursMinutesSeconds,
                       endTime: DateTime.now().add(
                         Duration(
-                          days: 8,
-                          hours: 5,
+                          days: 3,
+                          hours: 15,
                           minutes: 34,
                           seconds: 25,
                         ),

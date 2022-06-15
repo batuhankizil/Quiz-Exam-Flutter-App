@@ -19,7 +19,7 @@ class _tytScreenState extends State<tytScreen> {
     return Scaffold(
       backgroundColor: Colors.green.shade400,
       appBar: AppBar(
-        title: const Text('TYT'),
+        title: const Text('AYT'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(

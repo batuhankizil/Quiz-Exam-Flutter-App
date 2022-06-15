@@ -4,7 +4,7 @@ class TestVeri {
   List<Soru> soruBankasi = [
     Soru(soruMetni: '"Can kurtaran" kelimesi doğru yazılmıştır', soruYaniti: false),
     Soru(soruMetni: '"İnsanların sözlerini dikkatle dinlemek alışkanlığını edinin" cümlesinde yazım yanlışı yoktur', soruYaniti: true),
-    Soru(soruMetni: '328 ayısı 3 ile bölünebilir', soruYaniti: false),
+    Soru(soruMetni: '328 Sayısı 3 ile bölünebilir', soruYaniti: false),
     Soru(soruMetni: '7 Asal bir sayıdır', soruYaniti: false),
     Soru(soruMetni: '"abc = 100 . a + 10 . b + c" İfadesi doğrudur', soruYaniti: true),
     Soru(soruMetni: '"Belleğimizin derinliklerinden süzülüp gelen" \n\n sözünün cümleye kattığı anlam "Hafızamızda eskiden yer etmiş şeyler"dir. ', soruYaniti: true),

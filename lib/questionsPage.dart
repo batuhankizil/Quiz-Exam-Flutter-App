@@ -26,21 +26,8 @@ class questionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        /*appBar: AppBar(
-          title: const Text('Soru Dağılımı'),
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.green, Colors.green.shade800],
-                begin: Alignment.bottomLeft,
-                end: Alignment.topRight,
-              ),
-            ),
-          ),
-          centerTitle: true,
-        ),*/
+    return Scaffold(
+      body: Scaffold(
         appBar: AppBar(
           centerTitle: false,
           title: const Text("Soru Dağılımı"),

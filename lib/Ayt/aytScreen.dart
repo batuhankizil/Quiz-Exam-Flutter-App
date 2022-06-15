@@ -19,7 +19,7 @@ class _aytScreenState extends State<aytScreen> {
     return Scaffold(
       backgroundColor: Colors.green.shade400,
       appBar: AppBar(
-        title: const Text('AYT'),
+        title: const Text('TYT'),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
